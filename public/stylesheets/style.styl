@@ -4,7 +4,7 @@ body
   padding 0
   margin 0
   overflow-x hidden
-  background black url('http://i.imgur.com/Pk1BX.jpg') 50% 0
+  background white url('http://i.imgur.com/Pk1BX.jpg') 50% 0 no-repeat
 a
   color: #00B7FF
 
@@ -13,7 +13,7 @@ a
 
 .floating
   margin-left 60px
-  margin-top 400px
+  margin-top 330px
   height auto
   .white
     float left
@@ -58,10 +58,10 @@ a
   text-align center
   width 100%
   border-spacing 0
+  border-bottom 2px solid #ddd
   td
     border-left  1px solid #fff
     border-right 1px solid #e5e5e5
-    border-bottom 2px solid #ddd
     width 18%
     padding 10px 3%
     font-size 15px
@@ -72,7 +72,8 @@ a
     color #fff
     text-shadow 1px 1px 0 #333
     background #000
-    border 1px solid black
+    border-left 1px solid black
+    border-right 1px solid black
   td:first-child
     border-left 0
   td:last-child
@@ -82,3 +83,45 @@ a
   width 100%
   height 600px
   background white
+  font-size 16px
+  P:first-child
+    text-align justify
+    width 90%
+    margin 0 auto 0
+    padding 20px 0
+  .blocks
+    margin-left 5%
+    .block:first-child
+      background #f5f5f5
+    .block
+      float left
+      width 37%
+      min-width 420px
+      padding 0 5%
+      h2
+        font-size 32px
+        margin-bottom 15px
+      .temas
+        list-style none
+        .tema
+          margin-left -33px
+          text-shadow:1px 1px 1px #555
+          font-size 22px
+          font-weight bold
+      li
+        margin-bottom 15px
+
+#foot
+  width 100%
+  margin-top 50px
+  background #ddd
+  text-align center
+  box-shadow inset 0 50px 70px #f0f0f0
+  img
+    margin 30px
+    height 77px
+  .rights
+    color #777
+    width 100%
+    text-shadow 1px 1px 1px white
+    padding 10px 0
