@@ -40,10 +40,11 @@ a {
   margin-top: 0;
 }
 .floating .trans {
+  color: #fff;
   float: left;
   font-size: 20px;
-  color: #000;
   padding: 13px 20px 8px 10px;
+  text-shadow: 0px 2px 1px #000;
 }
 .floating .black:hover,
 .floating .trans:hover {
@@ -125,7 +126,7 @@ a {
 }
 #content .blocks .block .temas .tema {
   margin-left: -33px;
-  text-shadow: 1px 1px 1px #555;
+  text-shadow: 1px 1px 1px #bbb;
   font-size: 22px;
   font-weight: bold;
 }
