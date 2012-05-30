@@ -30,6 +30,9 @@ app.configure('production', function(){
 // Routes
 
 app.get('/', routes.index)
+app.get('/participa/', routes.participate)
+app.get('/nosotros/', routes.us)
+app.get('*', routes.e404)
 
 app.listen(17955, function(){
   console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env)

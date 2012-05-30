@@ -1,97 +1,127 @@
-.floating
-  .white
-    img(src='http://i.imgur.com/Y7xzF.png')
-  .black
-    | 1ER CONGRESO NACIONAL
-    br
-    | DE
-    b  INNOVACIÓN TECNOLÓGICA
-  .trans
-    b
-      | 30 DE JULIO
-      br
-      | AUDITORIO CASA DE ITALIA DE MARACAY
-.clearfix
-br
-.clearfix
+// Twitter
+| <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
 table#menu
   tr
-    td INICIO
-    td EL LUGAR
-    td LOS PONENTES
-    td MÁS SOBRE CDSTIC
+    td.active
+      a(href="/")
+        | ENTÉRATE
+    td
+      a(href="/participa/")
+        | PARTICIPA
+    td
+      a(href="/nosotros/")
+        | SOBRE NOSOTROS
 #content
-  p
-    | El Primer Congreso Nacional de Innovación Tecnológica, con sede en la imponente Casa de Italia de Maracay se convierte en zona de convergencia para lo mejor en innovación y desarrollo tecnológico.
-    | Promoviendo la aplicación del conocimiento y propiciando la tecnológica entre los entes educativos y empresariales del País. Será un espacio para el intercambio de información y conocimientos,
-    | entre profesionales, científicos, ingenieros, técnicos, empresarios, estudiantes y público en general, interesados en investigar, promover, analizar y conocer sobre el avance de las innovaciones tecnológicas
-    | en el campo de las Tecnologías de Información y Comunicación, Ingeniería de Sistemas, e Informática.
-    br
-    br
-    | Este evento es posible gracias al esfuerzo del equipo de proyectos Centro de Desarrollo de Software y Tecnologías de Comunicación y Telecomunicaciones (CDSTIC) de la Universidad Tecnológica del Centro (UNITEC),
-    | un grupo de estudiantes comprometidos a la investigación del desarrollo y comerciabilidad de tecnologías modernas,
-    | con la colaboración de empresas como TecnoSoluciones, con visiones similares, todos comprometidos con el éxito de este encuentro de individuos interesados en hacer la innovación posible en Venezuela.
+  .main
+    p
+      | El <b>Congreso Nacional de Innovación Tecnológica</b>, con sede en la <b>Casa de Italia de Maracay</b> será zona de convergencia para las mejores ideas en <b>innovación y desarrollo tecnológico</b> en el país.
+      | Conoce y comparte con profesionales, ingenieros, técnicos y empresarios en el campo de las Tecnologías de Información y Comunicaciones, sé parte de quienes queremos contribuir con el desarrollo de tecnologías innovadoras en <b>Venezuela</b>.
+      br
+      br
+      | El primer <b>CNIT</b> se llevará a cabo el evento el día <b>30 de Junio</b> del 2012, desde las 8 de la mañana, hasta las 5 de la tarde, en las instalaciones del teatro de la <b>Casa Italia Maracay</b>, con capacidad para <b>400 personas</b>, ubicada en la Calle Los Nísperos No. 1 - Plaza Italia, Urb. La Floresta, Maracay, Edo. Aragua.
+    p.logos
+      a.twitter( href="https://www.twitter.com/CNIT.VE" , target="_blank") CNIT en Twitter
+      a.facebook(href="https://www.facebook.com/CNIT.VE", target="_blank") CNIT en Facebook
+      br
+      br
+      a(href="http://tecnosoluciones.com", target="_blank")
+        img(src="http://i.imgur.com/llEEM.jpg", width="150px")
+      a(href="http://www.casaitaliamaracay.com/")
+        img(src="http://i.imgur.com/OFeF6.jpg", width="150px")
+      a(href="http://lourtec.com/")
+        img(src="http://i.imgur.com/dOGHr.png", width="200px")
+      a(href="https://twitter.com/#!/CDS_tic")
+        img(src="http://i.imgur.com/sxjV1.png", width="200px")
+      a(href="http://www.unitec.edu.ve/")
+        img(src="http://www.unitec.edu.ve/img/logoUnitec.png", width="200px")
+      br
+      a(href="http://sadasant.com/Pasos-para-Patrocinar.pdf") ¿Quieres tu logo aquí?
+      |  visita nuestros&nbsp;
+      a(href="http://sadasant.com/Carta-de-Patrocinio.pdf") planes de patrocinio
+      | .
   .blocks
     .block
-      h2 TEMAS:
-      p
-        ul.temas
-          li.tema(style="color:#3F9EFD;") Social Media Empresarial
-          li.tema(style="color:#DC25E2") El futuro de la web 2.0
-          li.tema(style="color:#ED0235") Computación en la nube
-          li.tema(style="color:#EB6E00") Software como un servicio
-          li.tema(style="color:#00C500") La innovación en tiempos difíciles
-        br
-    .block
-      h2 TARIFAS:
+      h2 PONENTES:
       p
         ul
           li
-            b Estudiantes:
+            b Introducción Unitec:
             br
-            | 200Bs de Inscripción hasta el 15 de Junio de 2012.
-            | 250Bs Del 15 de Junio hasta el día del evento.
+            | Un representante de la Universidad Tecnológica del Centro abrirá el evento,
+            |  haciéndoles llegar las mejores ideas y motivos para incentivar a estudiantes
+            |  y profesionales a formarse de manera integra, sobre tecnologías innovadoras
+            |  y como estas pueden ser aplicada exitosamente en los negocios.
           li
-            b Profesional y Público en General:
+            b Julio Calvo, la Web 2.0 y el Software como un Servicio:
             br
-            | 400Bs de Inscripción hasta el 15 de Junio de 2012.
-            | 450Bs Del 15 de Junio hasta el día del evento.
+            | Webmaster con más de 10 años de experiencia en la industria del desarrollo web,
+            |  Julio Calvo nos hablará sobre las tendencias de las tecnologías web de última
+            |  generación y cómo pueden ser aprovechadas para exponer sus marcas y para ofrecer
+            |  un mejor servicio al cliente.
+          li.hot
+            b Contacto Internacional º1:
             br
+            | 25 minutos con profesionales de habla hispana fuera del país,
+            |  trayendo sus experiencias de calidad, para refrescar
+            |  ideas y generar otras nuevas.
+          li
+            b Daniel Rodríguez <a href="http://twitter.com/tecnodaniel">@tecnodaniel</a>, Social media Empresarial.
             br
-    .clearfix
-  .blocks
+            | Más de 25 años de experiencia profesional en el desarrollo de tecnologías industriales y para empresas,
+            |  a nivel internacional, además de más de 10 años como emprendedor, Daniel Rodríguez llega con un tema
+            |  sumamente actualizado, nada más y nada menos que las redes sociales y cómo aprovecharlas al máximo
+            |  para dar a conocer a tu empresa y para captar a los más fieles clientes.
+          li.out
+            b Almuerzo.
+            br
+            | No incluido con la entrada.
+          li
+            b Innovación Tecnológica.
+            br
+            | Entre profesores y profesionales, un tema de suma importancia y que pocos podrían dar mejor,
+            |  la innovación y cómo llegar a ella, sus raices en la creatividad, de qué manera se hace posible
+            |  y cómo inspirarnos para sorprender el mercado con ideas que superen paradigmas de excelencia.
+          li
+            b Oscar Tejada con Computación en la Nube
+            br
+            | Especialista en seguridad informática y en temáticas de los servicios en la nube,
+            |  Oscar Tejada discutirá las nuevas tendencias de comunicación, almacenamiento y procesamiento
+            |  de datos en servidores externos a través de internet, las tecnologías que hoy en día
+            |  utilizan las empresas más grandes de tecnología y que hacen posible la existencia
+            |  de toda clase de aplicaciones.
+          li.hot
+            b Contacto Internacional º2:
+            br
+            | 25 minutos con profesionales de habla hispana fuera del país,
+            |  trayendo sus experiencias de calidad, para refrescar
+            |  ideas y generar otras nuevas.
+          li
+            b Cierre para la acción, con Emerson Ramírez. <a href="http://twitter.com/emersonramirezs">@emersonramirezs</a>
+            br
+            | E. Ramírez, experto conferencista en materia de ventas, hará uso de su expereincia para resumir
+            |  las herramientas aprendidas en el día, además de exponer un análisis de cómo podemos entrar a la
+            |  acción, dando un paso adelante en el mercado Venezolano a través de la innovación tecnológica.
+          li
+            b ¡Workshops!
+            br
+            | Para finalizar, una galería de productos y servicios altamente innovadores será expuesta en
+            |  los pasillos de salida, con información sobre sus usos, ofertas exclusivas ¡Y más!,
+            |  un cierre lleno de sorpresas, para dar inicio a un sábado de fiestas, pero también
+            |  ideal para irse a descansar y pensar en nuevas ideas.
     .block
-      h2 ¡INSCRIBETE YA!
-      p
-        ol
-          li Deposita en la cuenta corriente del Banco del Sur número: 0157-0061-11-376120-1080
-          li Solicita tu número de inscripción llamando a los teléfonos:
-             br
-             br
-             b Universidad Tecnológica del Centro:
-             |  (0245) 564.70.92 - 564.66.77
-             br
-             br
-             b Representantes de CDSTIC:
-             ul
-               li Doreina Peña (Coordinadora de Logistica, CDSTIC). Tlf: 0414-4635839
-               li Ricardo Gonzalez (Coordinador de Logistica, CDSTIC). Tlf: 0412-8712541/0414-4945883
-               li Luis Castro (Coordinador de Mercadeo, CDSTIC). Tlf: 0414-4387428
-               li Daniel Rodríguez (Coordinador General, CDSTIC). Tlf: 0414-9436759/0414-4567822
-    .block
-      h2 BENEFICIOS:
-      p
-        ul
-          li Certificado Avalado por la Universidad Tecnológica del Centro.
-          li Acceso a todas las conferencias, workshops y demostraciones.
-          li Inscripción en el boletín de noticias de CDSTIC.
-          li Documentación del Congreso.
-          li Refrigerios.
-  .clearfix
-.clearfix
-#foot
-  img(src="http://i.imgur.com/sxjV1.png")
-  img(src="http://www.unitec.edu.ve/img/logoUnitec.png")
-  .rights
-    | Copyright 2012 cnit.org.ve
+      h2 ¿Quieres participar?
+      | ¡Entra ya mismo en nuestra&nbsp;
+      a(href="/participa/") guía para participantes
+      |  y reserva tu entrada!
 
+    .block
+      h2 ¿Quieres ser "Líder de Grupo"?
+      | CNIT busca "Líderes de Grupo" para formar delegaciones por institución educativa y región, es muy fácil:
+      |  Al organizar un grupo de participantes de <b>mínimo diez (10) personas</b> puedes <b>ganarte tu inscripción</b> en el Congreso.
+      |  Para mayor información sobre responsabilidades, beneficios y condiciones solo escribe al correo comercialización@cnit.org.ve
+      |  o llama a los teléfonos: (0412) 871.25.41 para contactar a Ricardo Gonzalez, Coordinador de Comunicación y Logística de CDSTIC.
+  .clearfix
+  br
+  a.up(href="#top")
+    | Subir

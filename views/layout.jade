@@ -4,4 +4,30 @@ html
     title= title
     link(rel='stylesheet', href='/stylesheets/normalize.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
-  body!= body
+  body
+    table#top
+      tr
+        td
+          .logo
+            img(src='http://i.imgur.com/Y7xzF.png')
+        td
+          | CONGRESO NACIONAL DE
+          br
+          b  INNOVACIÓN TECNOLÓGICA
+        td
+          | 30/06/2012
+          br
+          b CASA ITALIA DE MARACAY
+    != body
+    .clearfix
+    #bottom
+      .rights
+        .left
+          a(href="https://github.com/sadasant/CNIT.org.ve") Fork me on Github
+          | . Hosting Provided by&nbsp;
+          a(href="http://nodester.com/") Nodester.com
+          | .
+        .right
+          | Copyright 2012 cnit.org.ve
+        .clearfix
+
