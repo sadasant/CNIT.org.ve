@@ -1,97 +1,284 @@
-.floating
-  .white
-    img(src='http://i.imgur.com/Y7xzF.png')
-  .black
-    | 1ER CONGRESO NACIONAL
-    br
-    | DE
-    b  INNOVACIÓN TECNOLÓGICA
-  .trans
-    b
-      | 30 DE JULIO
+.container
+  header#header.row
+    .span12
+      .row
+        .span5.hidden-phone.hidden-tablet
+          img(src='http://i.imgur.com/99dMZ.png')
+        .span7
+          ul
+            li
+              h1 1ER CONGRESO NACIONAL DE
+              h1 INNOVACIÓN TECNOLÓGICA
+            li
+              h3 AUDITORIO CASA DE ITALIA DE MARACAY
+              h3 30 DE JULIO
+      #navigation
+        ul.nav.nav-pills.pull-left
+          li
+            a(href='#evento') El evento
+          li
+            a(href='#lugar') El lugar
+          li
+            a(href='#inscripcion') Inscripción
+          li
+            a(href='#contacto') Contacto
+          li
+            a(href='#patrocinadores') Patrocinadores
+          li
+            a(href='#cdstic') CDSTIC
+        ul.nav.nav-pills.pull-right
+          li.dropdown
+            a.dropdown-toggle(href='#', data-toggle='dropdown') Enlaces
+              b.caret
+            ul.dropdown-menu
+              li
+                a(href='http://www.google.com') CDSTIC
+  section#evento.row
+    .span12
+      h2 EL EVENTO
+      .row
+        .span4
+          p.
+            El Primer Congreso Nacional de Innovación Tecnológica, con sede en la imponente Casa de Italia de Maracay se convierte en zona de convergencia para lo mejor en innovación y desarrollo tecnológico.
+            Promoviendo la aplicación del conocimiento y propiciando la tecnológica entre los entes educativos y empresariales del País. Será un espacio para el intercambio de información y conocimientos,
+            entre profesionales, científicos, ingenieros, técnicos, empresarios, estudiantes y público en general, interesados en investigar, promover, analizar y conocer sobre el avance de las innovaciones tecnológicas
+            en el campo de las Tecnologías de Información y Comunicación, Ingeniería de Sistemas, e Informática.
+        .span4
+          p.
+            Este evento es posible gracias al esfuerzo del equipo de proyectos Centro de Desarrollo de Software y Tecnologías de Comunicación y Telecomunicaciones (CDSTIC) de la Universidad Tecnológica del Centro (UNITEC),
+            un grupo de estudiantes comprometidos a la investigación del desarrollo y comerciabilidad de tecnologías modernas,
+            con la colaboración de empresas como TecnoSoluciones, con visiones similares, todos comprometidos con el éxito de este encuentro de individuos interesados en hacer la innovación posible en Venezuela.
+        .span4
+          h3 Beneficios:
+          ul.beneficios
+            li Certificado Avalado por la Universidad Tecnológica del Centro.
+            li Acceso a todas las conferencias, workshops y demostraciones.
+            li Inscripción en el boletín de noticias de CDSTIC.
+            li Documentación del Congreso.
+            li Refrigerios.
+      
+      .row-fluid.presentation
+        .span4
+          .row-fluid
+            .span12
+              h3 La Bienvenida
+              p Un representante de la Universidad Tecnológica del Centro abrirá el evento, haciéndoles llegar las mejores ideas y motivos para incentivar a estudiantes y profesionales a formarse de manera integra, sobre tecnologías innovadoras y como estas pueden ser aplicada exitosamente en los negocios.
+        .span8
+          .row-fluid
+            .span3.hidden-phone
+              img(src='/img/web-logos.png')
+            .span9
+              h3 La Web 2.0 y el Software como Servicio
+              h4 Julio Calvo
+              p Webmaster con más de 10 años de experiencia en la industria del desarrollo web, Julio Calvo nos hablará sobre las tendencias de las tecnologías web de última generación y cómo pueden ser aprovechadas para exponer sus marcas y para ofrecer un mejor servicio al cliente.
+      .row-fluid.presentation
+        .span6
+          .row-fluid
+            .span3.hidden-phone
+              img(src='/img/social.png')
+            .span9
+              h3 Social Media Empresarial
+              h4 Daniel Rodriguez, 
+                a(href='http://twitter.com/tecnodaniel') @tecnodaniel
+              p Más de 25 años de experiencia profesional en el desarrollo de tecnologías industriales y para empresas, a nivel internacional, además de más de 10 años como emprendedor, Daniel Rodríguez llega con un tema sumamente actualizado, nada más y nada menos que las redes sociales y cómo aprovecharlas al máximo para dar a conocer a tu empresa y para captar a los más fieles clientes.
+        .span6
+          .row-fluid
+            .span3.hidden-phone
+              img(src='/img/cloud.png')
+            .span9
+              h3 Computación en la Nube
+              h4 Oscar Tejada
+              p Especialista en seguridad informática y en temáticas de los servicios en la nube, Oscar Tejada discutirá las nuevas tendencias de comunicación, almacenamiento y procesamiento de datos en servidores externos a través de internet, las tecnologías que hoy en día utilizan las empresas más grandes de tecnología y que hacen posible la existencia de toda clase de aplicaciones.
+      .row-fluid.presentation
+        .span8
+          .row-fluid
+            .span3.hidden-phone
+              img(src='/img/zip.png')
+            .span9
+              h3 El Cierre
+              h4 Emerson Ramírez, 
+                a(href='http://twitter.com/emersonramirezs') @emersonramirezs
+              p E. Ramírez, experto conferencista en materia de ventas, hará uso de su expereincia para resumir las herramientas aprendidas en el día, además de exponer un análisis de cómo podemos entrar a la acción, dando un paso adelante en el mercado Venezolano a través de la innovación tecnológica.
+        .span4
+          .row-fluid
+            .span12
+              h3 ¡Workshops!
+              p Para finalizar, una galería de productos y servicios altamente innovadores será expuesta en los pasillos de salida, con información sobre sus usos, ofertas exclusivas ¡Y más!, un cierre lleno de sorpresas, para dar inicio a un sábado de fiestas, pero también ideal para irse a descansar y pensar en nuevas ideas.
+        
+  section#lugar.row
+    .span12
+      h2 EL LUGAR
+      .row-fluid
+        .span4.hidden-phone
+          .stack
+            img(src='/img/club1.jpg')
+          small Entrada de la Casa Italia de Maracay
+        .span4.description
+          p.place-intro El primer CNIT se llevará a cabo el día 
+            strong 30 de Junio 
+            | del 2012, a partir de las 
+            strong 8:00am 
+            | hasta las 
+            strong 5:00pm
+            |, en las instalaciones del teatro de la 
+            strong Casa Italia Maracay 
+            | con capacidad para 
+            strong 400 
+            | personas
+          address.place-block
+            strong Dirección
+            br
+            | Calle Los Nísperos No. 1
+            br
+            | Plaza Italia, Urb. La Floresta
+            br
+            | Maracay, Edo. Aragua.
+        .span4.hidden-phone.hidden-tablet
+          include includes/maps.html
+  
+  section#inscripcion.row
+    .span12
+      h2 INSCRIPCIÓN
+      h3 Sigue estos pasos para inscribirte
+      .row-fluid.steps
+        .span4
+          .row-fluid
+            .span3
+              span 1
+            .span9
+              p Verifica el monto que debes cancelar para tu inscripción en la tabla de 
+                a(href='#tarifas') tarifas 
+                |  que disponemos más abajo.
+        .span4
+          .row-fluid
+            .span3
+              span 2
+            .span9
+              p Deposita el monto correspondiente en la cuenta corriente del 
+                strong Banco del Sur 
+                |  número:
+                br
+                code 0157-0061-11-376120-1080
+        .span4
+          .row-fluid
+            .span3
+              span 3
+            .span9
+              p Solicita tu número de inscripción llamando a cualquiera de los 
+                a(href='#numeros') números de contacto 
+                | ubicados abajo.
+      .row-fluid.steps
+        .span4
+          .row-fluid
+            .span3
+              span 4
+            .span9
+              p Deberás presentar tu número de inscripción y documento de identidad en las puertas del evento.
+              p En caso de ser estudiante, debes presentar carnet o constancia que te acredite como tal.
+              
+        .span8
+          .row-fluid
+            .span12
+              a(name='tarifas')
+              table.table.table-bordered.table-striped
+                thead
+                  tr
+                    th(colspan='3') Tarifas
+                  tr
+                    th Tipo de entrada
+                    th Antes del 15 de Junio 2012
+                    th Desde el 15 de Junio hasta el día del evento
+                tbody
+                  tr
+                    td Estudiante
+                    td Bs. 200
+                    td Bs. 250
+                  tr
+                    td Profesional y público general
+                    td Bs. 400
+                    td Bs. 450
+  section#contacto.row
+    .span12
+      h2 CONTACTO
+      h3 Números de contacto
+      a(name='numeros')
+      .row-fluid.numbers
+        .span3
+          h3 Doreina Peña
+          h4 Coordinadora Logística, CDSTIC
+          p Teléfonos
+          ul
+            li
+              code (0414) 463.58.39
+        .span3
+          h3 Ricardo Gonzalez
+          h4 Coordinador Logística, CDSTIC
+          p Teléfonos
+          ul
+            li
+              code (0412) 871.25.41
+            li
+              code (0414) 494.58.83
+        .span3
+          h3 Luis Castro
+          h4 Coordinador Mercadeo, CDSTIC
+          p Teléfonos
+          ul
+            li
+              code (0414) 438.74.28
+        .span3
+          h3 Daniel Rodríguez
+          h4 Coordinador General, CDSTIC
+          p Teléfonos
+          ul
+            li
+              code (0414) 943.67.59
+            li
+              code (0414) 456.78.22
+      .row-fluid.numbers
+        .span12
+          hr
+          h4 Universidad Tecnológica del Centro
+          code (0245) 564.70.92 / 564.66.77
+          
+        
+  section#patrocinadores.row
+    .span12
+      h2 PATROCINADORES
+      h3 Este evento es posible gracias a:
+      .row-fluid
+        .span12
+          a(href='http://tecnosoluciones.com/')
+            img(src='http://i.imgur.com/llEEM.jpg')
+      .row-fluid
+        .span12
+          a(href='http://www.casaitaliamaracay.com/')
+            img(src='http://i.imgur.com/OFeF6.jpg')
+      .row-fluid
+        .span12
+          a(href='http://lourtec.com/')
+            img(src='http://i.imgur.com/dOGHr.png')
+      .row-fluid
+        .span12
+          a(href='http://twitter.com/CDS_tic')
+            img(src='http://i.imgur.com/sxjV1.png')
+      .row-fluid
+        .span12
+          a(href='http://www.unitec.edu.ve/')
+            img(src='http://www.unitec.edu.ve/img/logoUnitec.png')
+      .row-fluid
+        .span12
+          hr
+          h3 ¿Deseas apoyarnos y colocar tu logo aquí?
+          p Visita nuestros 
+            a(href='http://sadasant.com/Carta-de-Patrocinio.pdf') Planes de Patrocinio
+  section#cdstic.row
+    .span12
+      h2 CDSTIC
+      p Este evento es posible gracias al esfuerzo del equipo de proyectos Centro de Desarrollo de Software y Tecnologías de Comunicación y Telecomunicaciones (CDSTIC) de la Universidad Tecnológica del Centro (UNITEC), un grupo de estudiantes comprometidos a la investigación del desarrollo y comerciabilidad de tecnologías modernas.
       br
-      | AUDITORIO CASA DE ITALIA DE MARACAY
-.clearfix
-br
-.clearfix
-table#menu
-  tr
-    td INICIO
-    td EL LUGAR
-    td LOS PONENTES
-    td MÁS SOBRE CDSTIC
-#content
-  p
-    | El Primer Congreso Nacional de Innovación Tecnológica, con sede en la imponente Casa de Italia de Maracay se convierte en zona de convergencia para lo mejor en innovación y desarrollo tecnológico.
-    | Promoviendo la aplicación del conocimiento y propiciando la tecnológica entre los entes educativos y empresariales del País. Será un espacio para el intercambio de información y conocimientos,
-    | entre profesionales, científicos, ingenieros, técnicos, empresarios, estudiantes y público en general, interesados en investigar, promover, analizar y conocer sobre el avance de las innovaciones tecnológicas
-    | en el campo de las Tecnologías de Información y Comunicación, Ingeniería de Sistemas, e Informática.
-    br
-    br
-    | Este evento es posible gracias al esfuerzo del equipo de proyectos Centro de Desarrollo de Software y Tecnologías de Comunicación y Telecomunicaciones (CDSTIC) de la Universidad Tecnológica del Centro (UNITEC),
-    | un grupo de estudiantes comprometidos a la investigación del desarrollo y comerciabilidad de tecnologías modernas,
-    | con la colaboración de empresas como TecnoSoluciones, con visiones similares, todos comprometidos con el éxito de este encuentro de individuos interesados en hacer la innovación posible en Venezuela.
-  .blocks
-    .block
-      h2 TEMAS:
-      p
-        ul.temas
-          li.tema(style="color:#3F9EFD;") Social Media Empresarial
-          li.tema(style="color:#DC25E2") El futuro de la web 2.0
-          li.tema(style="color:#ED0235") Computación en la nube
-          li.tema(style="color:#EB6E00") Software como un servicio
-          li.tema(style="color:#00C500") La innovación en tiempos difíciles
-        br
-    .block
-      h2 TARIFAS:
-      p
-        ul
-          li
-            b Estudiantes:
-            br
-            | 200Bs de Inscripción hasta el 15 de Junio de 2012.
-            | 250Bs Del 15 de Junio hasta el día del evento.
-          li
-            b Profesional y Público en General:
-            br
-            | 400Bs de Inscripción hasta el 15 de Junio de 2012.
-            | 450Bs Del 15 de Junio hasta el día del evento.
-            br
-            br
-    .clearfix
-  .blocks
-    .block
-      h2 ¡INSCRIBETE YA!
-      p
-        ol
-          li Deposita en la cuenta corriente del Banco del Sur número: 0157-0061-11-376120-1080
-          li Solicita tu número de inscripción llamando a los teléfonos:
-             br
-             br
-             b Universidad Tecnológica del Centro:
-             |  (0245) 564.70.92 - 564.66.77
-             br
-             br
-             b Representantes de CDSTIC:
-             ul
-               li Doreina Peña (Coordinadora de Logistica, CDSTIC). Tlf: 0414-4635839
-               li Ricardo Gonzalez (Coordinador de Logistica, CDSTIC). Tlf: 0412-8712541/0414-4945883
-               li Luis Castro (Coordinador de Mercadeo, CDSTIC). Tlf: 0414-4387428
-               li Daniel Rodríguez Daniel Rodríguez (Coordinador General, CDSTIC). Tlf: 0414-9436759/0414-4567822
-    .block
-      h2 BENEFICIOS:
-      p
-        ul
-          li Certificado Avalado por la Universidad Tecnológica del Centro.
-          li Acceso a todas las conferencias, workshops y demostraciones.
-          li Inscripción en el boletín de noticias de CDSTIC.
-          li Documentación del Congreso.
-          li Refrigerios.
-  .clearfix
-.clearfix
-#foot
-  img(src="http://i.imgur.com/sxjV1.png")
-  img(src="http://www.unitec.edu.ve/img/logoUnitec.png")
-  .rights
-    | Copyright 2012 cnit.org.ve
+      
+  footer
+    hr
+    p Copyright 2012 cnit.org.ve
 
