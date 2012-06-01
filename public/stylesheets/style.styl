@@ -1,209 +1,353 @@
-box-shadow()
-  -moz-box-shadow arguments
-  -webkit-box-shadow arguments
-  -o-box-shadow arguments
-  -ms-box-shadow arguments
-  box-shadow arguments
-
-text-shadow()
-  -text-text-shadow arguments
-  -webkit-text-shadow arguments
-  -o-text-shadow arguments
-  -ms-text-shadow arguments
-  text-shadow arguments
-
-border-radius
-  -moz-border-radius arguments
-  -webkit-border-radius arguments
-  -o-border-radius arguments
-  -ms-border-radius arguments
-  border-radius arguments
-
-transition()
-  -moz-transition arguments
-  -webkit-transition arguments
-  -o-transition arguments
-  -ms-transition arguments
-  transition arguments
+@import 'nib'
 
 body
-  padding: 50px
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif
-  padding 0
-  margin 0
-  overflow-x hidden
-  background url(http://i.imgur.com/3x3IK.png)
-a
-  color: #00B7FF
+  background-image url('http://i.imgur.com/F0BEa.png')
+  background-position center top
+  background-repeat repeat-x
 
-#top,#menu,#content,#bottom
- margin 0 auto 0
+section
+  padding-top 40px
+  padding-bottom 0px
+  > .span12 > .row,
+  > .span12 > .row-fluid
+    padding-top 15px
+  > .span12 > h3
+    color #bbbbbb
+p
+  font-size 14px
+  line-height 20px
 
-#top
-  width 90%
-  height 119px
-  text-align center
-  td
-    vertical-align bottom
-    padding 5px 10px
-    color white
-    text-shadow 1px 1px 0 black
-    font-size 16px
-    text-align left
-  img
-    background white
-    padding 10px
-    border-radius 10px 10px 0 0
-    margin-bottom -5px
-    box-shadow inset 0px -3px 3px rgba(#999,.3), 3px 3px 3px rgba(#000,.3)
-  td:first-child
-    width 270px
-  td:last-child
-    text-align right
+ul.beneficios li
+  font-size 14px
+  line-height 20px
 
-.clearfix:after
-  display block
-  content "."
-  clear both
-  visibility hidden
-  line-height 0
-  height 0
-.clearfix
-  display inlin-block
-  clear both
-
-#menu
-  background #f5f5f5
-  border-radius 3px 3px 0 0
-  border-bottom 2px solid #ddd
-  border-spacing 0
-  position relative
-  text-align center
-  width 90%
-  z-index 10
-  td
-    border-left  1px solid #fff
-    border-right 1px solid #e5e5e5
-    width 18%
-    padding 10px 3%
-    font-size 1.7em
-    font-weight bold
-    color #999
-    text-shadow 1px 1px 0 white, 0px 0px 1px white
-    transition all .5s ease 0s
-    a
-      color inherit
-      text-decoration none
-  td.active
-    color #4EA8D0
-  td:hover
-    color #2B86C2
-    background #eee
-  td:first-child
-    border-left 0
-    border-radius 3px
-  td:last-child
-    border-right 0
-    border-radius 3px
-
-#content
-  width 90%
-  font-size 16px
-  .main
-    background white
-    text-align justify
-    margin -16px 0 0 0
-    width 100%
-    border-radius 0 0 3px 3px
-    box-shadow 0px 2px 0 #aaa
-    p
-      padding 10px 20px 0px
-    p.logos
-      text-align center
-      padding 10px 20px 10px
-      margin-top 0px
-      img
-        opacity .7
-        transition all .5s ease 0s
-        vertical-align middle
-        margin -10px 10px 10px
-      img:hover
-        opacity 1
-      .twitter,.facebook
-        padding 5px 10px
-        border-radius 2px
-        color white
-        font-weight bold
-        text-decoration none
-        text-shadow -1px -1px 0 rgba(black,.3)
-        margin 0 5px
-        transition all .3s ease 0s
-      .twitter
-        background #1E9AC7
-      .twitter:hover
-        box-shadow inset 0px 3px 9px rgba(#64D7FE,.7), inset 0 -5px 9px rgba(#156F8D,.7)
-      .facebook
-        background #1D6CC6
-      .facebook:hover
-        box-shadow inset 0px 3px 9px rgba(#62A3FD,.7), inset 0 -5px 9px rgba(#14388C,.7)
-  .block
-    padding 0 20px 20px
-    background #f5f5f5
-    border-radius 3px
-    box-shadow 0px 2px 0 #aaa
-    text-align justify
-    color #333
-    h2
-      font-size 28px
-      margin-bottom 15px
-      margin-top 10px
-      color #333
-      padding 12px 0 8px
-      width 100%
-      border-bottom 1px solid #ddd
-    li
-      margin-bottom 15px
-      width 95%
-      img
-        float right
-        max-width 300px
-        border-radius 5px
-        margin 20px 0 20px 20px
-    li.hot
-      color red
-    li.out
-      color gray
-
-.up
-  background #f5f5f5
-  padding 10px
-  color #999
-  border-radius 5px
-  font-weight bold
-  width 50px
-  text-align center
-  text-shadow 1px 1px 0 white, 0px 0px 1px white
-  transition all .5s ease 0s
-  opacity .5
-  text-decoration none
-.up:hover
-  color #333
-  background #ddd
-  opacity 1
-
-#bottom
-  color #028AE8
-  width 90%
-  margin-top 20px
-  background rgba(black,.3)
-  box-shadow inset 0 0 15px rgba(#000,.2)
-  border-radius 9px
-  border 1px solid #038BE8
-  text-shadow 1px 1px 0px black
-  text-align center
-  .rights
-    padding 10px
-    .left
+#header
+  padding-top 30px
+  .row
+    padding-bottom 35px
+    img
+      margin 0 auto
+    ul
       float left
-    .right
-      float right
+      li
+        background-color #000000
+        background rgba(0, 0, 0, 0.3) linear-gradient(top, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.3)) no-repeat center center
+        display list-item
+        float left
+        list-style none outside none
+        padding 4px 20px 4px 10px
+        margin 1px
+        h1, h2, h3, h4, h5
+          color #efefef
+        &:hover
+          background rgba(0, 0, 0, 0.5) linear-gradient(top, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)) no-repeat center center
+          h1, h2, h3, h4
+            color #ffffff
+
+/* Navigation bar */
+#navigation
+  width 100%
+  height 40px
+  background-color #eeeeee
+  background-repeat repeat-x
+  background-image linear-gradient(top, #f5f5f5, #eeeeee)
+  border 1px solid #e5e5e5
+  border-radius 4px
+  .nav 
+    margin-bottom 0
+    > li > a
+      color #999999
+      font-size 16px
+      line-height 20px
+      margin 0
+      padding 10px 20px 10px 20px
+      border-left 1px solid #f5f5f5
+      border-right 1px solid #e5e5e5
+      border-radius 0
+    > .active > a,
+    > .active > a:hover
+      color #777777
+      background-color #e9e9e9
+      border-right-color #ddd
+      border-left 0
+      box-shadow inset 0 3px 5px rgba(0,0,0,.05)
+    > .active > a .caret,
+    > .active > a:hover .caret 
+      border-top-color #777777
+    > li:first-child > a,
+    > li:first-child > a:hover 
+      border-left 0
+      border-radius 4px 0 0 4px
+    > li:last-child > a 
+      border-right 0
+    > li:last-child > a,
+    > li:last-child > a:hover 
+      border-radius 0px 4px 4px 0px
+  .nav-tabs .open .dropdown-toggle,
+  .nav-pills .open .dropdown-toggle,
+  .nav > li.dropdown.open.active > a,
+  .nav > li.dropdown.open.active > a:hover
+    background-color #c9c9c9
+    border-radius 0px 4px 4px 0px
+
+/* Fixed navigation on scroll */
+#navigation.navigation-fixed
+  position fixed
+  top 0px
+  left 0
+  right 0
+  z-index 1020
+  border-color #d5d5d5
+  border-width 0 0 1px
+  border-radius 0
+  box-shadow inset 0 1px 0 #fff, 0 1px 5px rgba(0,0,0,.1)
+  .nav
+    margin 0 auto
+    padding 0 1px
+    > li:first-child > a,
+    > li:first-child > a:hover,
+    > li:last-child > a,
+    > li:last-child > a:hover
+      border-radius 0
+
+ /* Fix arrow from dropdown menu */
+.dropdown .caret
+  margin-left 8px
+
+
+.stack
+  float left
+  margin 10% 18%
+  height 60%
+  width 60%
+  position relative
+
+.stack, .stack:before, .stack:after
+  border 8px solid #ffffff
+  box-shadow 2px 2px 8px 0px rgba(0,0,0,0.2)
+
+.stack:before, .stack:after
+  content ""
+  display block
+  height 101%
+  width 101%
+  position absolute
+  z-index -1
+
+.stack:before
+  background-color #9F9A70
+  top 8px
+  left -22px
+  transform rotate(-5deg)
+
+.stack:after
+  background-color #768590
+  top 2px
+  left 6px
+  transform rotate(5deg)
+
+#lugar .place-intro,
+#lugar .place-block
+  margin-bottom: 10px
+  font-size 14px
+  font-weight 300
+  line-height 20px
+
+#lugar .place-intro
+  padding 0 0 0 15px
+  margin 0 0 18px
+  border-left 5px solid #dddddd
+
+#lugar .place-block
+  padding 0 15px 0 0
+  margin 100px 0 18px
+  border-left 0px
+  border-right 5px solid #dddddd
+  text-align right
+
+#lugar .span4 small
+  clear both
+  color #999999
+  display block
+  margin 0px auto
+  padding-top 6px
+  text-align center
+
+.steps, .presentation
+  div > .row-fluid > div
+    padding-top 25px
+  .span3
+    span
+      color #bbbbbb
+      border 5px solid #bbbbbb
+      border-radius 40px
+      display block
+      font-size 24px
+      font-weight bold
+      height 40px
+      line-height 40px
+      margin 0px auto
+      text-align center
+      width 40px
+    img
+      display block
+      margin 0px auto
+    p code
+      font-size 14px
+
+.numbers
+  .span3
+    padding-top 12px
+    p
+      padding-top 8px
+    ul li
+      list-style none
+      padding 3px 0px
+  .span12, .span12 h4
+    text-align right
+  .span12 h4
+    padding-bottom 5px
+
+.presentation .row-fluid p
+  padding-top 16px
+
+#patrocinadores .row-fluid .span12
+  text-align center
+  padding-top 10px
+  a
+    text-align center
+  img
+    max-height 150px
+    max-width 250px
+
+.table
+  thead th,
+  th, td
+    text-align center
+    vertical-align middle
+
+footer p
+  text-align right
+  padding 10px 0px 50px 0px
+
+/* Displays lower than 980px */
+@media (max-width: 979px)
+
+  /* Expand title to use horizontal space */
+  #header .row .span7
+    width 99.999999993%
+    *width 99.9468085036383%
+
+
+  /* Navigation bar, small screens */
+  #navigation
+    position static
+    top auto
+    z-index auto
+    width auto
+    height auto
+    background #ffffff
+    .nav
+      float none
+      > li 
+        float none
+        > a 
+          border 0
+      > li + li > a 
+        border-top 1px solid #e5e5e5
+      > li:first-child > a,
+      > li:first-child > a:hover
+        border-radius 4px 4px 0 0
+    .nav:last-child li > a,
+    .nav:last-child li > a:hover
+      border-radius 0px 0px 4px 4px
+    .nav.pull-right .dropdown-menu 
+      left 0px
+      right auto
+    .nav-tabs .open .dropdown-toggle,
+    .nav-pills .open .dropdown-toggle,
+    .nav > li.dropdown.open.active > a,
+    .nav > li.dropdown.open.active > a:hover
+      background-color #c9c9c9
+      border-radius 0px 0px 4px 4px
+  #navigation.navigation-fixed
+    position static
+    border 1px solid #e5e5e5
+    border-radius 4px
+    .nav:last-child li > a,
+    .nav:last-child li > a:hover
+      border-radius 0px 0px 4px 4px
+
+  #lugar .span4.description
+    width 65.81196581200001%
+    *width 65.7587743226383%
+    .place-block
+      margin 25px 0 18px
+
+@media (max-width: 767px) 
+  .steps
+    .span3
+      float left
+      width: 23.076923077%;
+      *width: 23.0237315876383%;
+     .span9
+      float left
+      width: 74.358974359%;
+      *width: 74.30578286963829%;
+    p
+      font-size 14px
+      line-height 18px
+      code
+        font-size 12px
+
+  #lugar .span4.description
+    width 99.999999993%
+    *width 99.9468085036383%
+    .place-block
+      margin 20px 0 18px
+
+
+/* Displays lower than 560px */
+@media (max-width: 559px)
+  #header
+    padding-top 25px
+    padding-bottom 25px
+    .row
+      padding-bottom 25px
+      ul
+        float left
+        li
+          padding 3px 16px 3px 8px
+          margin 1px
+          h1
+            font-size 24px
+            line-height 36px
+          h3
+            font-size 14px
+            line-height 18px
+
+
+@media (max-width: 480px)
+  #header
+    padding-top 25px
+    padding-bottom 25px
+    .row
+      padding-bottom 25px
+      ul
+        float left
+        li
+          padding 2px 12px 2px 6px
+          margin 1px
+          h1
+            font-size 18px
+            line-height 27px
+          h3
+            font-size 12px
+            line-height 18px
+
+
+  #lugar .place-intro,
+  #lugar .place-block
+    font-size 12px
+    font-weight 300
+    line-height 18px

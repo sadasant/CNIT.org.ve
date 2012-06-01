@@ -5,6 +5,17 @@ var express = require('express')
 // Routes
 var routes = require('./routes');
 
+// Stylus and Nib
+var stylus = require('stylus')
+var nib = require('nib')
+
+function nibCompile(str, path) {
+  return stylus(str)
+    .set('filename', path)
+    .set('compress', false)
+    .use(nib());
+}
+
 // The express server
 var app = module.exports = express.createServer();
 
@@ -14,7 +25,10 @@ app.configure(function(){
   app.set('view engine', 'jade')
   app.use(express.bodyParser())
   app.use(express.methodOverride())
-  app.use(require('stylus').middleware({ src: __dirname + '/public' }))
+  app.use(stylus.middleware({ 
+      src: __dirname + '/public'
+    , compile: nibCompile 
+  }))
   app.use(app.router)
   app.use(express.static(__dirname + '/public'))
 })
