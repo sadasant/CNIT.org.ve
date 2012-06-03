@@ -13,7 +13,8 @@
     "express": "*",
     "jade": "*",
     "stylus": "*",
-    "nib": "*"
+    "nib": "*",
+    "nodemailer": "*"
   },
   "author": "CDStic <@CDS_tic>",
   "main": "app"

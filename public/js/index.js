@@ -24,4 +24,7 @@ $(document).ready(function(){
       nav.removeClass('navigation-fixed')
     }
   }
+
+// Form modal
+
 });

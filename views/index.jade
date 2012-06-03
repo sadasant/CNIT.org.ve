@@ -175,6 +175,80 @@
             .span9
               p Deberás presentar tu número de inscripción y documento de identidad en las puertas del evento.
               p En caso de ser estudiante, debes presentar carnet o constancia que te acredite como tal.
+            .span3
+              span 5
+            .span8
+              p LLene 
+               a( data-toggle="modal",href="#myModal") este formulario
+        div(class="modal hide",id="myModal")
+          .modal-header
+            Button(type="button", class="close", data-dismiss="modal") x
+            h3 Formulario
+          .modal-body
+            form(class="form-horizontal",method="post",action="/register")
+              fieldset
+                .control-group
+                  Legend Formulario 
+                    table
+                      tr
+                        td
+                          Label(class="form-labels",for="name-field") Name
+                        td
+                          input(name="user[name]",type="text",id="name-field",placeholder="Name")
+                      tr
+                        td
+                          Label(class="form-labels",for="last-name-field") Last Name
+                        td  
+                          input(name="user[lastname]",type="text",id="last-name-field",placeholder="Last Name")
+                      tr
+                        td
+                          Label(class="form-labels",for="email-field") Email
+                        td
+                          input(name="user[email]",type="text",id="email-field",placeholder="Example@gmail.com")
+                      tr
+                        td
+                          Label(class="form-labels",for="id-field") Identity Card
+                        td
+                          input(name="user[id]",type="text",id="id-field",placeholder="V-5421354")
+                      tr
+                        td
+                          Label(class="form-labels",for="org-field") Organization
+                        td
+                          input(name="user[organization]",type="text",id="org-field",placeholder="Monsters Inc.")
+                      
+                      tr
+                        td
+                          Label(class="form-labels",for="city-field") City
+                        td
+                          input(name="user[city]",type="text",id="city-field",placeholder="Valencia")
+                      tr
+                        td
+                          Label(class="form-labels",for="deposit-number-field") Deposit or Transfer number
+                        td
+                          input(name="user[deposit-number]",type="text",id="deposit-number-field",placeholder="0000-0000-0000-0000")
+                      tr
+                        td
+                          Label(class="form-labels",for="deposit-ammount-field") Deposit or Transer ammount
+                        td
+                          input(name="user[deposit-ammount]",type="text",id="deposit-ammount-field",placeholder="800Bs.F")
+                      tr
+                        td
+                          Label(class="form-labels",for="deposit-date-field") Deposit or Transer date
+                        td
+                          input(name="user[deposit-date]",type="text",id="deposit-date-field",placeholder="1/1/2012")
+                      tr
+                        td
+                          Label(class="form-labels",for="number-tickets-field") Number of tickets
+                        td
+                          input(name="user[number-tickets]",type="text",id="number-tickets-field",placeholder="2")
+                      tr
+                        td
+                        td  
+                          input(type="submit",value="Submit") 
+
+          .modal-footer
+            a(href="#", class="btn",data-dismiss="modal") close
+            a(href="#", class="btn btn-primary")x
 
         .span8
           .row-fluid

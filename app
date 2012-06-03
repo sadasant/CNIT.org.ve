@@ -1,4 +1,3 @@
-
 // MVC Sugar
 var express = require('express')
 
@@ -47,6 +46,7 @@ app.get('/', routes.index)
 app.get('/participa/', routes.participate)
 app.get('/nosotros/', routes.us)
 app.get('*', routes.e404)
+app.post('/register',routes.sendEmail)
 
 app.listen(17955, function(){
   console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env)
