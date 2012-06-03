@@ -19,7 +19,7 @@ exports.sendEmail = function(req,res) {
 
   // TODO:
   //  According to the issue: <https://github.com/sadasant/CNIT.org.ve/issues/1>
-  //  the form will sent to this route the following body elements:
+  //  the form will send to this route the following body elements:
   //    · name
   //    · lastName
   //    · email
@@ -44,18 +44,18 @@ exports.sendEmail = function(req,res) {
   //    return res.send({ error : "Invalid Mail" })
   //  }
   //
-  //  Where `validMail` is a RegEx, for example.
+  //  Where `validMail` is a RegEx.
   //  Usually regexes will do all this dirty job,
   //  so this is a plus thing, it's time to learn regexes! :D
 
   // TODO:
-  //  Now that you have confirmed that the data is valid,
+  //  Now that you have validated the data,
   //  it's time to create the random value, this is less important right now, so just
   //  save a string like:
-  //    var randomValue = 'this will be random after the rest is done'
+  //    var randomValue = 'this will be the random value after the rest is done'
 
   // TODO:
-  //  then you can make the transport object...
+  //  Then you can make the transport object...
   //  to make sure our users and passwords are not
   //  available to the public, you can include
   //  a secret.js file on the top of this file
@@ -67,9 +67,10 @@ exports.sendEmail = function(req,res) {
 
   // TODO:
   //  So far so good, now it's time to send the freaking mail.
-  //  Express let you render partial views, like this:
+  //  Express lets you render partial views, like this:
   //
   //    var data = {
+  //      // Cool things that the jade view will use
   //    }
   //
   //    res.partial('email/new_request', data, renderedPartial)
@@ -81,7 +82,7 @@ exports.sendEmail = function(req,res) {
   //      }
   //
   //      var options = {
-  //        /* stuff here */
+  //        // sendMail options
   //        html : body
   //      }
   //
@@ -115,7 +116,7 @@ exports.sendEmail = function(req,res) {
   smptTransport.sendMail(mailOptions, mailSent)
 
   function mailSent(err,res) {
-    if (err) return console.log(error)
+    if (err) return console.log(err)
     console.log("Message Sent: "+res.message);
   }
 
