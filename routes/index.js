@@ -64,6 +64,8 @@ exports.sendEmail = function(req,res) {
   //
   //  So here we could do like:
   //    service : secret.service // haha, awesome!
+  //
+  //  Remember to add that secret file to the .gitignore file.
 
   // TODO:
   //  So far so good, now it's time to send the freaking mail.
