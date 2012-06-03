@@ -1,21 +1,22 @@
 {
-  "name": "CNIT.org.ve",
-  "description": "CNIT.org.ve",
-  "version": "0.0.0",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/sadasant/CNIT.org.ve.git"
-  },
-  "engines": {
+  "name" : "CNIT.org.ve"
+, "description" : "CNIT.org.ve"
+, "version" : "0.0.0"
+,
+"repository" : {
+    "type" : "git"
+  , "url" : "git://github.com/sadasant/CNIT.org.ve.git"
+  }
+, "engines": {
     "node": "*"
-  },
-  "dependencies": {
-    "express": "*",
-    "jade": "*",
-    "stylus": "*",
-    "nib": "*",
-    "nodemailer": "*"
-  },
-  "author": "CDStic <@CDS_tic>",
-  "main": "app"
+  }
+, "dependencies": {
+    "express" : "*"
+  , "jade" : "*"
+  , "stylus" : "*"
+  , "nib" : "*"
+  , "nodemailer" : "*"
+  }
+, "author" : "CDStic <@CDS_tic>"
+, "main" : "app"
 }
