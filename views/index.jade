@@ -78,7 +78,7 @@
               img(src='/img/social.png')
             .span9
               h3 Social Media Empresarial
-              h4 Daniel Rodriguez, 
+              h4 Daniel Rodriguez,
                 a(href='http://twitter.com/tecnodaniel') @tecnodaniel
               p Más de 25 años de experiencia profesional en el desarrollo de tecnologías industriales y para empresas, a nivel internacional, además de más de 10 años como emprendedor, Daniel Rodríguez llega con un tema sumamente actualizado, nada más y nada menos que las redes sociales y cómo aprovecharlas al máximo para dar a conocer a tu empresa y para captar a los más fieles clientes.
         .span6
@@ -96,7 +96,7 @@
               img(src='/img/zip.png')
             .span9
               h3 El Cierre
-              h4 Emerson Ramírez, 
+              h4 Emerson Ramírez,
                 a(href='http://twitter.com/emersonramirezs') @emersonramirezs
               p E. Ramírez, experto conferencista en materia de ventas, hará uso de su expereincia para resumir las herramientas aprendidas en el día, además de exponer un análisis de cómo podemos entrar a la acción, dando un paso adelante en el mercado Venezolano a través de la innovación tecnológica.
         .span4
@@ -114,16 +114,16 @@
             img(src='/img/club1.jpg')
           small Entrada de la Casa Italia de Maracay
         .span4.description
-          p.place-intro El primer CNIT se llevará a cabo el día 
-            strong 30 de Junio 
-            | del 2012, a partir de las 
-            strong 8:00am 
-            | hasta las 
+          p.place-intro El primer CNIT se llevará a cabo el día
+            strong 30 de Junio
+            | del 2012, a partir de las
+            strong 8:00am
+            | hasta las
             strong 5:00pm
-            |, en las instalaciones del teatro de la 
-            strong Casa Italia Maracay 
-            | con capacidad para 
-            strong 400 
+            |, en las instalaciones del teatro de la
+            strong Casa Italia Maracay
+            | con capacidad para
+            strong 400
             | personas
           address.place-block
             strong Dirección
@@ -146,16 +146,16 @@
             .span3
               span 1
             .span9
-              p Verifica el monto que debes cancelar para tu inscripción en la tabla de 
-                a(href='#tarifas') tarifas 
+              p Verifica el monto que debes cancelar para tu inscripción en la tabla de
+                a(href='#tarifas') tarifas
                 |  que disponemos más abajo.
         .span4
           .row-fluid
             .span3
               span 2
             .span9
-              p Deposita el monto correspondiente en la cuenta corriente del 
-                strong Banco del Sur 
+              p Deposita el monto correspondiente en la cuenta corriente del
+                strong Banco del Sur
                 |  número:
                 br
                 code 0157-0061-11-376120-1080
@@ -163,10 +163,23 @@
           .row-fluid
             .span3
               span 3
+              
+            #myModal.modal.hide.fade
+              .modal-header
+                button(data-dismiss='modal',type='button').close ×
+                h3 Registro de participante
+              .modal-body
+
+              .modal-footer
+                a.btn(data-dismiss='modal',href='#') Cerrar
+                a.btn.btn-primary(href='#') Enviar
+                
             .span9
               p Obten tu número de inscripción llenando la planilla que se encuentra disponible 
-                a(href='#') aquí
-                |.
+                a(href='#myModal',data-toggle='modal').btn.btn-primary aquí
+                |	
+  
+
       .row-fluid.steps
         .span4
           .row-fluid
@@ -270,7 +283,7 @@
         .span12
           hr
           h3 ¿Deseas apoyarnos y colocar tu logo aquí?
-          p Visita nuestros 
+          p Visita nuestros
             a(href='http://sadasant.com/Carta-de-Patrocinio.pdf') Planes de Patrocinio
   section#cdstic.row
     .span12
@@ -280,4 +293,5 @@
 
   footer
     hr
-    p Copyright 2012 cnit.org.ve
+    
+  script(src="/public/js/modal.js")

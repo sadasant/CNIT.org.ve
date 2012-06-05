@@ -14,3 +14,4 @@ exports.participate = function(req, res) {
 exports.us = function(req, res) {
   res.render('us', { title: 'CNIT - Nuestro equipo' })
 }
+
