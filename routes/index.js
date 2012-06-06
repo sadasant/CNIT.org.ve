@@ -48,11 +48,15 @@ exports.sendEmail = function(req,res) {
   //  Usually regexes will do all this dirty job,
   //  so this is a plus thing, it's time to learn regexes! :D
 
-  // TODO:
-  //  Now that you have validated the data,
-  //  it's time to create the random value, this is less important right now, so just
-  //  save a string like:
-  //    var randomValue = 'this will be the random value after the rest is done'
+  // Generating special code...
+
+  crypto.randomBytes(4, function(err, buf) {
+    if (err){
+      console.error("Error generating user code")
+      return res.send({ "status" : "fail", "error" : "Error generating code" })
+    }
+    user.special_code = buf.toString('hex'));
+  });
 
   // TODO:
   //  Then you can make the transport object...
