@@ -1,4 +1,5 @@
-var mailer = require('nodemailer');
+var mailer = require('nodemailer')
+  , crypto = require('crypto')
 
 exports.index = function(req, res) {
   res.render('index', { title: 'CNIT' })
