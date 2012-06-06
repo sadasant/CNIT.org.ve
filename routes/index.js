@@ -96,3 +96,4 @@ exports.sendEmail = function(req,res) {
   // returning json ..
   
   res.send({"status" : "ok" , "code" : user.special_code})
+}
