@@ -1,5 +1,6 @@
 var mailer = require('nodemailer')
   , crypto = require('crypto')
+  , secret = require('./secret')
 
 exports.index = function(req, res) {
   res.render('index', { title: 'CNIT' })
@@ -59,74 +60,40 @@ exports.sendEmail = function(req,res) {
     user.special_code = buf.toString('hex'));
   });
 
-  // TODO:
-  //  Then you can make the transport object...
-  //  to make sure our users and passwords are not
-  //  available to the public, you can include
-  //  a secret.js file on the top of this file
-  //  that secret could be similar to this file:
-  //    <https://gist.github.com/2859635#file_secret.js>
-  //
-  //  So here we could do like:
-  //    service : secret.service // haha, awesome!
-  //
-  //  Remember to add that secret file to the .gitignore file.
+  // transport object created with secret file options...
 
-  // TODO:
-  //  So far so good, now it's time to send the freaking mail.
-  //  Express lets you render partial views, like this:
-  //
-  //    var data = {
-  //      // Cool things that the jade view will use
-  //    }
-  //
-  //    res.partial('email/new_request', data, renderedPartial)
-  //
-  //    function renderedPartial(err, body) {
-  //      if (err) {
-  //        console.log(err)
-  //        return res.send({ error : "D:" }) // I kid, write a better error x_x
-  //      }
-  //
-  //      var options = {
-  //        // sendMail options
-  //        html : body
-  //      }
-  //
-  //      smptTransport.sendMail(options, mailSent)
-  //    })
-  //
-  //    // etc...
-  //
-  //  As you can see, we received a `body` with the html
-  //  using `res.partial` :)
-  //  yey!! \o/
-  //
+  var smtpTransport = mailer.createTransport("SMTP", secret.transportObject)
+    , emailText
 
-  var transportObject = {
-    service : "Gmail"
-  , auth    : {
-      user  : "CNIT@cnit.com"
-    , pass  : "ab123456"
+  
+  // generating html body email with data..
+  
+  res.partial('email/new_request', user, function(err, body){
+    if (err){
+      console.error("Error generating body/email html")
+      return res.send({ "status" : "fail", "error" : "Error generating email" })
     }
+    emailText = body
   }
 
-  var smptTransport = mailer.createTransport("SMTP", transportObject);
-
+  // sending email to cnit ..
+  
   var mailOptions = {
-    from    : "examp@CNIT.com"
-  , to      : "obeladrian@gmail.com"
-  , subject : "Mensaje Desde Node"
-  , text    : "Dummy text"
+    from : "cnit.ve@gmail.com"
+  , to : "cnit.ve@gmail.com"
+  , subject : "Registro usuario: " + user.name + " " + user.lastName
+  , html : emailText
   }
 
-  smptTransport.sendMail(mailOptions, mailSent)
+  smtpTransport.sendMail(mailOptions, function(err, res){
+    if(err){
+      console.error("Error sending email")
+      return res.send({ "status" : "fail", "error" : "Error sending email" })
+    }
+    smtpTransport.close();
+  })
 
-  function mailSent(err,res) {
-    if (err) return console.log(err)
-    console.log("Message Sent: "+res.message);
-  }
-
-  console.log(user)
-  res.redirect('back')
+  // returning json ..
+  
+  res.send({"status" : "ok" , "code" : user.special_code})
 }
