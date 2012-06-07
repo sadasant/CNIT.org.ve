@@ -24,4 +24,17 @@ $(document).ready(function(){
       nav.removeClass('navigation-fixed')
     }
   }
-});
+})
+
+$(function() {
+  $('#sendData').click(function(e){
+  e.preventDefault()
+
+  var form_data = $('#registryForm').serialize()
+
+  $.post('mi_url', form_data, function(data){
+    console.log(data)
+  })
+
+})
+})

@@ -169,17 +169,56 @@
                 button(data-dismiss='modal',type='button').close ×
                 h3 Registro de participante
               .modal-body
+                form#registryForm
+                  .control-group.string.required
+                    .controls
+                      .input-prepend
+                        .span6
+                          span.add-on Nombre
+                          input.string.required(style='width:180px',type='text',name='name')
+                        .span6
+                          span.add-on Apellido
+                          input.string.required.input-medium(type='text',name='last-name')                        
+                      .input-prepend
+                        .span6
+                          span.add-on @
+                          input.string.required(type='text',name='email')
+                        .span6
+                          span.add-on Cedula
+                          input.string.required.input-medium(type='text',name='ci')
+                      .input-prepend
+                        .span6
+                          span.add-on Organizacion
+                          input.string.required.input-medium(type='text',name='org')
+                        .span6
+                          span.add-on Ciudad
+                          input.string.required.input-medium(type='text',name='ci')
+                    .controls(style='margin-top:10px')
+                      label.radio Estudiante
+                        input#optionsRadios1(type='radio',checked='',value='option1',name='optionsRadios')
+                      label.radio Profesional o Publico General
+                        input#optionsRadios2(type='radio',checked='',value='option2',name='optionsRadios')
+                      .span8
+                        input.input-large(type='text',placeholder='Numero de Deposito/Transferencia')
+                      .span8
+                        input.input-large(type='text',placeholder='Monto de Deposito/Transferencia')
+                      .span
+                        .span6
+                          label Fecha de Deposito/Transferencia
+                          input.input-large(type='text')
+                        .span6
+                          label Numero de entradas
+                          input.input-medium(type='text')
 
               .modal-footer
                 a.btn(data-dismiss='modal',href='#') Cerrar
-                a.btn.btn-primary(href='#') Enviar
+                a.btn.btn-primary#sendData(href='#') Enviar
                 
             .span9
               p Obten tu número de inscripción llenando la planilla que se encuentra disponible 
                 a(href='#myModal',data-toggle='modal').btn.btn-primary aquí
                 |	
   
-
       .row-fluid.steps
         .span4
           .row-fluid
@@ -294,4 +333,4 @@
   footer
     hr
     
-  script(src="/public/js/modal.js")
+  script(src="/public/js/index.js")
