@@ -32,7 +32,7 @@ $(function() {
 
   var form_data = $('#registryForm').serialize()
 
-  $.post('mi_url', form_data, function(data){
+  $.post('/register', form_data, function(data){
     console.log(data)
   })
 
