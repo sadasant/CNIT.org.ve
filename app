@@ -1,53 +1,21 @@
-// MVC Sugar
-var express = require('express')
+// CNIT.org.ve
+// -----------
+//
+// Authored by:
+// - Daniel Rodríguez  @sadasant
+// - Stefan Maric      @alexstefan92
+// - Sergio Bruni      @sergebruni
+// - Adrian Obelmejías https://www.facebook.com/adrian.obelmejias
+// - Daniel Aubourg    https://www.facebook.com/daniel.aubourg
+//
 
-// Routes
-var routes = require('./routes');
-
-// Stylus and Nib
-var stylus = require('stylus')
-var nib = require('nib')
-
-function nibCompile(str, path) {
-  return stylus(str)
-    .set('filename', path)
-    .set('compress', false)
-    .use(nib());
+if(!process.env.NODE_ENV) {
+  process.env.NODE_ENV = "development"
 }
 
-// The express server
-var app = module.exports = express.createServer();
+var app  = require('./config/app')()
+  , port = process.env.PORT || 1337
 
-// Configuration
-app.configure(function(){
-  app.set('views', __dirname + '/views')
-  app.set('view engine', 'jade')
-  app.use(express.bodyParser())
-  app.use(express.methodOverride())
-  app.use(stylus.middleware({ 
-      src: __dirname + '/public'
-    , compile: nibCompile 
-  }))
-  app.use(app.router)
-  app.use(express.static(__dirname + '/public'))
-})
-
-app.configure('development', function(){
-  app.use(express.errorHandler({ dumpExceptions: true, showStack: true }))
-})
-
-app.configure('production', function(){
-  app.use(express.errorHandler())
-})
-
-// Routes
-
-app.get('/', routes.index)
-app.get('/participa/', routes.participate)
-app.get('/nosotros/', routes.us)
-app.post('/register', routes.register)
-app.get('*', routes.e404)
-
-app.listen(17955, function(){
+app.listen(port, function() {
   console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env)
 })

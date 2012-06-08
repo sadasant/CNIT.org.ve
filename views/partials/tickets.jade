@@ -1,0 +1,20 @@
+- each ticket in tickets
+  table
+    - each v,k in ticket
+      tr
+        td= k
+        td
+          - if (k == 'state')
+            div(class="state-"+v)= v
+          - else
+            = v
+    tr
+      td Cambiar Estado
+      td
+        select
+          option Seleccionar
+          option espera
+          option aprobado
+          option denegado
+          option usado
+        ai.enviar.btn(data-id=ticket.id) Enviar

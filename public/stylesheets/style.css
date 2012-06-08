@@ -498,3 +498,70 @@ footer p {
   text-align: right;
   width: 70%;
 }
+.modal-footer .error.ok {
+  color: #008000;
+}
+#results {
+  width: 90%;
+  margin: 10px 0;
+}
+#results table {
+  float: left;
+  width: 500px;
+  margin: 0 0 20px 20px;
+  -webkit-box-shadow: 0 0 2px rgba(0,0,0,0.1);
+  box-shadow: 0 0 2px rgba(0,0,0,0.1);
+  -webkit-transition: all 0.5s ease 0s;
+  -moz-transition: all 0.5s ease 0s;
+  -o-transition: all 0.5s ease 0s;
+  -ms-transition: all 0.5s ease 0s;
+  transition: all 0.5s ease 0s;
+}
+#results table tr:first-child {
+  border-top: 1px solid #ddd;
+}
+#results table tr:last-child td {
+  border-bottom: 1px solid #ddd;
+}
+#results table tr {
+  background: #f5f5f5;
+}
+#results table tr td {
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  padding: 5px 10px;
+  color: #777;
+}
+#results table tr td:nth-child(1) {
+  text-align: right;
+  font-weight: bold;
+  color: #656978;
+}
+#results table tr:nth-child(2n) {
+  background: #f0f0f0;
+}
+#results table:hover {
+  -webkit-box-shadow: 0px 2px 4px rgba(0,0,0,0.5);
+  box-shadow: 0px 2px 4px rgba(0,0,0,0.5);
+}
+#results .state-espera,
+#results .state-aprobado,
+#results .state-denegado,
+#results .state-usado {
+  font-weight: bold;
+}
+#results .state-espera {
+  color: #00f;
+}
+#results .state-aprobado {
+  color: #008000;
+}
+#results .state-denegado {
+  color: #f00;
+}
+#results .state-usado {
+  color: #808080;
+}
+#results select {
+  margin-top: 10px;
+}

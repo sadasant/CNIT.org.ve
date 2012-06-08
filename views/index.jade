@@ -340,8 +340,8 @@
                   .controls
                     select.select#registry-type_of_payment(name='type_of_payment')
                       option Seleccionar Tipo de Pago
-                      option Deposito
-                      option Transferencia
+                      option(value="deposito") Deposito
+                      option(value="transferencia") Transferencia
                     span.help.hidden Debe seleccionar un método de pago
                 .control-group
                   label.control-label Numero de Transacción

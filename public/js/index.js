@@ -135,6 +135,13 @@ $(document).ready(function(){
     if (data.error) {
       $error.show()
       $error.html(data.error)
+      $error.removeClass('ok')
+    } else
+    if (data.status === 'ok') {
+      $error.html('¡Registro enviado!')
+      $error.addClass('ok')
+    } else {
+      $error.html('')
     }
   }
 

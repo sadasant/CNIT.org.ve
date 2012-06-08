@@ -395,3 +395,47 @@ footer p
     position absolute
     text-align right
     width 70%
+  .error.ok
+    color green
+
+#results
+  width 90%
+  margin 10px 0
+  table
+    float left
+    width 500px
+    margin 0 0 20px 20px
+    box-shadow 0 0 2px rgba(black,.1)
+    transition all .5s ease 0s
+    tr:first-child
+      border-top 1px solid #ddd
+    tr:last-child
+      td
+        border-bottom 1px solid #ddd
+    tr
+      background #f5f5f5
+      td
+        border-left 1px solid #ddd
+        border-right 1px solid #ddd
+        padding 5px 10px
+        color #777
+      td:nth-child(1)
+        text-align right
+        font-weight bold
+        color #656978
+    tr:nth-child(2n)
+      background #f0f0f0
+  table:hover
+    box-shadow 0px 2px 4px rgba(black,.5)
+  .state-espera,.state-aprobado,.state-denegado,.state-usado
+    font-weight bold
+  .state-espera
+    color blue
+  .state-aprobado
+    color green
+  .state-denegado
+    color red
+  .state-usado
+    color grey
+  select
+    margin-top 10px
