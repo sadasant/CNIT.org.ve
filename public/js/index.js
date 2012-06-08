@@ -24,17 +24,21 @@ $(document).ready(function(){
       nav.removeClass('navigation-fixed')
     }
   }
-})
 
-$(function() {
+  var day   =  $('#payment-day-field')
+      
   $('#sendData').click(function(e){
-  e.preventDefault()
+    e.preventDefault()
 
-  var form_data = $('#registryForm').serialize()
-
-  $.post('/register', form_data, function(data){
-    console.log(data)
+    var form_data = $('#registryForm').serialize()
+      , date = new Date(2012,5,day.val())
+      
+    form_data += '&payment_date='+date
+    console.log(date)
+    
+    $.post('/register', form_data, function(data){
+      console.log(data)
+    })
   })
 
-})
 })
