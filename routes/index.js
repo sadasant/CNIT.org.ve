@@ -1,6 +1,6 @@
-var mailer = require('nodemailer')
-  , crypto = require('crypto')
-  , secret = require('./secret')
+var mailer   = require('nodemailer')
+  , crypto   = require('crypto')
+  , secret   = require('../secret')
   , mongoose = require('mongoose')
 
 // Fields Validation
@@ -9,12 +9,12 @@ var validate = {
     , cedula         : /^[0-9]{6,8}$/
     , just_numbers   : /^[0-9]*$/
     }
-    
-// some stuff 
+
+// some stuff
 var email_times = 0
   , max_email_times = 4
   , CODE_SIZE_BYTES = 4
-    
+
 // Db model
 var UserModel = new mongoose.Schema({ 
     "_id"           : mongoose.Schema.ObjectId
@@ -167,13 +167,13 @@ exports.register = function(req,res) {
     user.special_code    = special_code
     user.state           = 'espera'
 
-    user.save(savedRegistry)    
+    user.save(savedRegistry)
   }
 
   function savedRegistry(err) {
     if (err) return res.send({ error : 'Error db' })
     sendMail()
-    
+
     res.send({"status" : "ok"})
   }
 
@@ -181,11 +181,11 @@ exports.register = function(req,res) {
 
     // TODO:
     //   SEND MAIL TO THE USER AND TO THE CNIT MAIL
-    
+
     // TODO:
     // put on email/new_request.jade COOL desing & create object
     // to pass it in partial
-  
+
 
     smtpTransport = mailer.createTransport("SMTP", secret.transportObject)
 
@@ -194,7 +194,7 @@ exports.register = function(req,res) {
     }else{
       res.partial('email/new_request', {name : name}, function(err, g_html){
         if (err) console.log(err)
-        
+
         // sending email to cnit ..
         mail_options = {
           from    : "<cnit> cnit.ve@gmail.com"
@@ -207,7 +207,7 @@ exports.register = function(req,res) {
       })
     }
   }
-      
+
   function sentMail(err, res){
     // just preventing infinite email sending
     email_times++
