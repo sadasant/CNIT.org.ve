@@ -16,6 +16,7 @@
   , "stylus" : "*"
   , "nib" : "*"
   , "nodemailer" : "*"
+  , "mongoose" : "*"
   }
 , "author" : "CDStic <@CDS_tic>"
 , "main" : "app"
