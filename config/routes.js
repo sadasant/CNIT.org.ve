@@ -255,7 +255,7 @@ routes.find = function(req, res) {
   , payment_ammount : +req.body.payment_ammount
   , tickets_stud    : +req.body.tickets_stud
   , tickets_else    : +req.body.tickets_else
-  , special_code    : req.body.special_code
+  , special_codes   : req.body.special_codes
   , state           : req.body.state
   }
 
@@ -284,7 +284,7 @@ routes.find = function(req, res) {
       , payment_ammount : +e.payment_ammount
       , tickets_stud    : +e.tickets_stud
       , tickets_else    : +e.tickets_else
-      , special_code    : e.special_code
+      , special_codes   : e.special_codes
       , state           : e.state
       }
     })
