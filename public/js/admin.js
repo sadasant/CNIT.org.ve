@@ -38,7 +38,10 @@ $(document).ready(function(){
       , state = $dad.find('select').val()
       , id    = $this.attr('data-id')
     $.post('/update', { id : id, state : state}, function(data) {
-      $dad.html( data.error || data.status )
+      if (data.error) return $dad.html(data.error)
+      var state = data.state
+      state = '<div class="state-'+state+'">'+state+'</div>'
+      $dad.html(state)
     })
   })
 })

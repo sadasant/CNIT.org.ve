@@ -2,6 +2,7 @@
   "name" : "CNIT.org.ve"
 , "description" : "CNIT.org.ve"
 , "version" : "0.0.0"
+, "node" : "0.6.17"
 ,
 "repository" : {
     "type" : "git"
@@ -17,6 +18,7 @@
   , "nib" : "*"
   , "nodemailer" : "*"
   , "mongoose" : "*"
+  , "crypto" : "*"
   }
 , "author" : "CDStic <@CDS_tic>"
 , "main" : "app"

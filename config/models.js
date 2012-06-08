@@ -29,7 +29,7 @@ models.Ticket = new Schema({
   , payment_ammount : Number
   , tickets_stud    : Number
   , tickets_else    : Number
-  , special_code    : String
+  , special_codes   : []
   , state           : String
  })
 
