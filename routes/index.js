@@ -1,6 +1,7 @@
 var mailer = require('nodemailer')
   , crypto = require('crypto')
   , secret = require('./secret')
+  , mongoose = require('mongoose')
 
 // Fields Validation
 var validate = {
@@ -8,6 +9,33 @@ var validate = {
     , cedula         : /^[0-9]{6,8}$/
     , just_numbers   : /^[0-9]*$/
     }
+    
+// some stuff 
+var email_times = 0
+  , max_email_times = 4
+  , CODE_SIZE_BYTES = 4
+    
+// Db model
+var UserModel = new mongoose.Schema({ 
+    "_id"           : mongoose.Schema.ObjectId
+  , name            : String
+  , last_name       : String
+  , email           : String
+  , cedula          : String
+  , organization    : String
+  , city            : String
+  , type_of_payment : String
+  , payment_number  : Number
+  , payment_date    : String
+  , payment_ammount : Number
+  , tickets_stud    : Number
+  , tickets_prof    : Number
+  , special_code    : String
+  , state           : String
+ })
+// db model
+var User = mongoose.model('users', UserModel)
+
 
 // Route: /
 exports.index = function(req, res) {
@@ -27,18 +55,18 @@ exports.us = function(req, res) {
 // Route: /register
 exports.register = function(req,res) {
 
-  var name            = body.req.name
-    , last_name       = body.req.last_name
-    , email           = body.req.email
-    , cedula          = body.req.cedula
-    , organization    = body.req.organization
-    , city            = body.req.city
-    , type_of_payment = body.req.type_of_payment
-    , payment_number  = body.req.payment_number
-    , payment_date    = body.req.payment_date
-    , payment_ammount = body.req.payment_ammount
-    , tickets_stud    = body.req.tickets_stud
-    , tickets_prof    = body.req.tickets_prof
+  var name            = req.body.user.name
+    , last_name       = req.body.user.last_name
+    , email           = req.body.user.email
+    , cedula          = req.body.user.cedula
+    , organization    = req.body.user.organization
+    , city            = req.body.user.city
+    , type_of_payment = req.body.user.type_of_payment
+    , payment_number  = req.body.user.payment_number
+    , payment_date    = req.body.user.payment_date
+    , payment_ammount = req.body.user.payment_ammount
+    , tickets_stud    = req.body.user.tickets_stud
+    , tickets_prof    = req.body.user.tickets_prof
     , ticket_stud_val = 200
     , ticket_prof_val = 400
     , special_code
@@ -50,11 +78,11 @@ exports.register = function(req,res) {
   if (!name            ) err = 'nombre'               ; else
   if (!last_name       ) err = 'apellido'             ; else
   if (!email           ) err = 'correo'               ; else
-  if (!cedula          ) err = 'cédula de indentidad' ; else
-  //if (!organization    ) err = 'organización'         ; else
-  //if (!city            ) err = 'city'                 ; else
+  if (!cedula          ) err = 'cédula de indentidad'; else
+  if (!organization    ) err = 'organización'        ; else
+  if (!city            ) err = 'city'                 ; else
   if (!type_of_payment ) err = 'tipo de pago'         ; else
-  if (!payment_number  ) err = 'número de pago'       ; else
+  if (!payment_number  ) err = 'número de pago'      ; else
   if (!payment_date    ) err = 'fecha de pago'        ; else
   if (!payment_ammount ) err = 'monto de pago'        ; else
   if (!(tickets_stud || tickets_prof))
@@ -63,7 +91,7 @@ exports.register = function(req,res) {
   // Validating fields
 
   if (err) {
-    res.json({ error : 'Faltó el campo '+err })
+    return res.json({ "error" : 'Faltó el campo '+err })
   }
 
   if (!validate.email.test(email)) {
@@ -72,7 +100,7 @@ exports.register = function(req,res) {
   if (!validate.cedula.test(cedula)) {
     err = 'Cédula inválida'
   } else
-  if (!(payment_type == 'transferencia' || 'deposito')) {
+  if (!(type_of_payment == 'transferencia' || 'deposito')) {
     err = 'Tipo de pago inválido'
   } else
   if (!validate.just_numbers.test(payment_number)) {
@@ -81,7 +109,7 @@ exports.register = function(req,res) {
   if (!validate.just_numbers.test(tickets_stud)) {
     err = 'Número de entradas de estudiantes inválido'
   } else
-  if (!validate.just_numbers.test(ticket_prof)) {
+  if (!validate.just_numbers.test(tickets_prof)) {
     err = 'Número de entradas de profesionales inválido'
   } else
   if (!validate.just_numbers.test(payment_ammount)) {
@@ -94,53 +122,58 @@ exports.register = function(req,res) {
   }
 
   if (err) {
-    res.json({ error : err })
+    return res.json({ error : err })
   }
+  // if everything its ok.. we connect with DB
+  mongoose.connect(secret.mongo_url)
 
   // Generating special code...
   getRandomBytes()
 
   function getRandomBytes() {
-    crypto.randomBytes(4, gotRandomBytes)
+    crypto.randomBytes(CODE_SIZE_BYTES, gotRandomBytes)
   }
 
   function gotRandomBytes(err, buf) {
-    if (err){
-      console.error("Error generating user code")
-      return res.send({ "status" : "fail", "error" : "Error generating code" })
-    }
+    if (err) return res.send({ error : "Error generating code" })
     special_code = buf.toString('hex')
     checkInDB()
-
-  function checkInDB() {
-    // Check in db
-    // db.registry.find({special_code : special_code}, checkedInDB)
   }
 
-  function checkedInDB(err, reg) {
-    if (err) return res.send({ error : ':( hubo un error' })
-    if (reg) return getRandomBytes()
+  function checkInDB() {
+    User.count({special_code : special_code}, checkedInDB)
+  }
+
+  function checkedInDB(err, count) {
+    if (err) return res.send({ error : 'DB error' })
+    if (count) return getRandomBytes()
     sendToDB()
   }
 
   function sendToDB() {
-    // Send it to mongo
-    //
-    // var reg = {
-    //   // estructure...
-    //   state = 'esperando'
-    // }
-    //
-    // reg = new db.registry(reg)
-    //
-    // reg.save(savedRegistry)
-    //
+    var user = new User()
+    user.name            = name
+    user.last_name       = last_name
+    user.email           = email
+    user.cedula          = cedula
+    user.organization    = organization
+    user.city            = city
+    user.type_of_payment = type_of_payment
+    user.payment_number  = +payment_number
+    user.payment_date    = payment_date
+    user.payment_ammount = +payment_ammount
+    user.tickets_stud    = +tickets_stud
+    user.tickets_prof    = +tickets_prof
+    user.special_code    = special_code
+    user.state           = 'espera'
+
+    user.save(savedRegistry)    
   }
 
   function savedRegistry(err) {
-    if (err) return res.send({ error : ':( hubo un error' })
+    if (err) return res.send({ error : 'Error db' })
     sendMail()
-    // returning json ..
+    
     res.send({"status" : "ok"})
   }
 
@@ -148,37 +181,41 @@ exports.register = function(req,res) {
 
     // TODO:
     //   SEND MAIL TO THE USER AND TO THE CNIT MAIL
-
-    // transport object created with secret file options...
+    
+    // TODO:
+    // put on email/new_request.jade COOL desing & create object
+    // to pass it in partial
+  
 
     smtpTransport = mailer.createTransport("SMTP", secret.transportObject)
 
     if (mail_options) {
       smtpTransport.sendMail(mail_options, sentMail)
-    }
+    }else{
+      res.partial('email/new_request', {name : name}, function(err, g_html){
+        if (err) console.log(err)
+        
+        // sending email to cnit ..
+        mail_options = {
+          from    : "<cnit> cnit.ve@gmail.com"
+        , to      : "cnit.ve@gmail.com"
+        , subject : "Registro usuario: " + name + " " + last_name
+        , html    : g_html
+        }
 
-    // generating html body email with data..
-    res.partial('email/new_request', user, function(err, html){
-      if (err){
-        console.error("Error generating body/email html")
-        return res.send({ "status" : "fail", "error" : "Error generating email" })
-      }
-
-      // sending email to cnit ..
-      mail_options = {
-        from : "cnit.ve@gmail.com"
-      , to : "cnit.ve@gmail.com"
-      , subject : "Registro usuario: " + name + " " + last_name
-      , html : html
-      }
-
-      smtpTransport.sendMail(mail_options, sentMail)
+        smtpTransport.sendMail(mail_options, sentMail)
+      })
     }
   }
-
+      
   function sentMail(err, res){
-    smtpTransport.close()
-    if (err) return sendMail()
+    // just preventing infinite email sending
+    email_times++
+    if (err){
+      if(email_times <= max_email_times){
+          smtpTransport.close()
+          return sendMail()
+      }else {email_times = 0;return}
+    }
   }
-
 }
