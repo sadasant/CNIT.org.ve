@@ -290,60 +290,66 @@
             form.form-horizontal#registryForm
               .fielset
                 .control-group
-                  label.control-label(for='name-field') Nombre
+                  label.control-label(for='name') Nombre
                   .controls
-                      input.input-large(,name="user[name]",type="text",id="name-field",placeholder="Nombre")
+                      input.input-large(,name="user[name]",type="text",id="name",placeholder="Nombre")
                       span.help-inline
                 .control-group
-                  label.control-label(for='last-name-field') Apellido
+                  label.control-label(for='last-name') Apellido
                   .controls
-                      input.input-large(name="user[lastname]",type="text",id="last-name-field",placeholder="Apellido")
+                      input.input-large(name="user[lastname]",type="text",id="last-name",placeholder="Apellido")
                       span.help-inline                      
                 .control-group
-                  label.control-label(for='email-field') Correo
+                  label.control-label(for='email') Correo
                   .controls
-                    input.input-large(name="user[email]",type="text",id="email-field",placeholder="Correo")
+                    input.input-large(name="user[email]",type="text",id="email",placeholder="Correo")
                     span.help-inline
                 .control-group
-                  label.control-label(for='id-field') Cedula de Identidad
+                  label.control-label(for='cedula') Cedula de Identidad
                   .controls
-                      input.input-large(name="identityCard",type="text",id="id-field",placeholder="Cedula")
+                      input.input-large(name="identityCard",type="text",id="cedula",placeholder="Cedula")
                       span.help-inline
                 .control-group
-                  label.control-label(for='org-field') Organización
+                  label.control-label(for='organization') Organización
                   .controls
-                    input.input-large(name="user[organization]",type="text",id="org-field",placeholder="Organización")
+                    input.input-large(name="user[organization]",type="text",id="organization",placeholder="Organización")
                     span.help-inline
                 .control-group
-                  label.control-label(for='city-field') Ciudad
+                  label.control-label(for='city') Ciudad
                   .controls
-                    input.input-large(name="user[city]",type="text",id="city-field",placeholder="Ciudad")
+                    input.input-large(name="user[city]",type="text",id="city",placeholder="Ciudad")
                     span.help-inline
                 .control-group
-                  label.control-label(for='ocupation') Ocupación
+                  label.control-label(for='tickets_stud') Entradas para Estudiantes
                   .controls
-                    select.select(name="user[ocupation]",id="ocupation")
-                      option Seleccionar Ocupación
-                      option Estudiante
-                      option Profesional (Publico General)
+                    input.input-large(name="tickets_stud",type="text",id="tickets_stud ",placeholder="Entradas para Estudiantes")
+                    button.btn(type="button) +
+                    button.btn(type="button) -
                     span.help-inline
                 .control-group
-                  label.control-label(for='payment_type') Metodo de Pago
+                  label.control-label(for='tickets_prof') Entradas para Profesional/Publico General
                   .controls
-                    select.select(name='user[payment_type]',id='payment_type')
+                    input.input-large(name="tickets_prof",type="text",id="tickets_prof",placeholder="Entradas para Profesional o Publico General")
+                    button.btn(type="button) +
+                    button.btn(type="button) -
+                    span.help-inline
+                .control-group
+                  label.control-label(for='type_of_payment') Metodo de Pago
+                  .controls
+                    select.select(name='user[type_of_payment]',id='type_of_payment')
                       option Seleccionar Tipo de Pago
                       option Deposito
                       option Transferencia
                     span.help-inline
                 .control-group
-                  label.control-label(for='payment-number-field') Numero de Deposito/Transferencia
+                  label.control-label(for='payment-number') Numero de Deposito/Transferencia
                   .controls
-                    input.field-large(name='user[payment_number]',type="text",id="payment-number-field",placeholder='Numero de Deposito/Transferencia')
+                    input.field-large(name='user[payment_number]',type="text",id="payment-number",placeholder='Numero de Deposito/Transferencia')
                     span.help-inline
                 .control-group
-                  label.control-label(for='payment-ammount-field') Monto de Deposito/Transferencia
+                  label.control-label(for='payment-ammount') Monto de Deposito/Transferencia
                   .controls
-                    input.field-large(name='user[payment_ammount]',type="text",id="payment-ammount-field",placeholder='Monto de Deposito/Transferencia')
+                    input.field-large(name='user[payment_ammount]',type="text",id="payment-ammount",placeholder='Monto de Deposito/Transferencia')
                     span.help-inline
                 .control-group
                   label.control-label(for='payment-day-field') Fecha de Deposito/Transferencia
