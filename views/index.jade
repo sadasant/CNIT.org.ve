@@ -287,51 +287,76 @@
             button(data-dismiss='modal',type='button').close ×
             h3 Registro de participante
           .modal-body
-            form#registryForm
+            form.form-horizontal#registryForm
+              .fielset
                 .control-group
+                  label.control-label(for='name-field') Nombre
                   .controls
-                    .input-prepend
-                      span.add-on Nombre
-                      input.string.field.required.input-medium(,name="user[name]",type="text",id="name-field",placeholder="Nombre")
-                      span.add-on Apellido
-                      input.string.field.required.input-medium(name="user[lastname]",type="text",id="last-name-field",placeholder="Apellido")                        
+                      input.input-large(,name="user[name]",type="text",id="name-field",placeholder="Nombre")
+                      span.help-inline
                 .control-group
+                  label.control-label(for='last-name-field') Apellido
                   .controls
-                    .input-prepend
-                      span.add-on @
-                      input.string.field.required.input-medium(name="user[email]",type="text",id="email-field",placeholder="Correo")
-                      span.add-on Cedula
-                      input.string.field.required.input-medium(name="identityCard",type="text",id="id-field",placeholder="Cedula")
+                      input.input-large(name="user[lastname]",type="text",id="last-name-field",placeholder="Apellido")
+                      span.help-inline                      
                 .control-group
+                  label.control-label(for='email-field') Correo
                   .controls
-                    .input-prepend
-                      span.add-on Organización
-                      input.string.field.required.input-medium(name="user[organization]",type="text",id="org-field",placeholder="Organización")
-                      span.add-on Ciudad
-                      input.string.field.required.input-medium(name="user[city]",type="text",id="city-field",placeholder="Ciudad")
+                    input.input-large(name="user[email]",type="text",id="email-field",placeholder="Correo")
+                    span.help-inline
                 .control-group
+                  label.control-label(for='id-field') Cedula de Identidad
+                  .controls
+                      input.input-large(name="identityCard",type="text",id="id-field",placeholder="Cedula")
+                      span.help-inline
+                .control-group
+                  label.control-label(for='org-field') Organización
+                  .controls
+                    input.input-large(name="user[organization]",type="text",id="org-field",placeholder="Organización")
+                    span.help-inline
+                .control-group
+                  label.control-label(for='city-field') Ciudad
+                  .controls
+                    input.input-large(name="user[city]",type="text",id="city-field",placeholder="Ciudad")
+                    span.help-inline
+                .control-group
+                  label.control-label(for='ocupation') Ocupación
                   .controls
                     select.select(name="user[ocupation]",id="ocupation")
-                      option Seleccionar Ocupacion
+                      option Seleccionar Ocupación
                       option Estudiante
                       option Profesional (Publico General)
+                    span.help-inline
+                .control-group
+                  label.control-label(for='payment_type') Metodo de Pago
+                  .controls
                     select.select(name='user[payment_type]',id='payment_type')
                       option Seleccionar Tipo de Pago
                       option Deposito
                       option Transferencia
+                    span.help-inline
                 .control-group
+                  label.control-label(for='payment-number-field') Numero de Deposito/Transferencia
                   .controls
                     input.field-large(name='user[payment_number]',type="text",id="payment-number-field",placeholder='Numero de Deposito/Transferencia')
-                    input.field-large(name='user[payment_ammount]',type="text",id="payment-ammount-field",placeholder='Monto de Deposito/Transferencia')
+                    span.help-inline
                 .control-group
+                  label.control-label(for='payment-ammount-field') Monto de Deposito/Transferencia
                   .controls
-                    label Fecha de Deposito/Transferencia
+                    input.field-large(name='user[payment_ammount]',type="text",id="payment-ammount-field",placeholder='Monto de Deposito/Transferencia')
+                    span.help-inline
+                .control-group
+                  label.control-label(for='payment-day-field') Fecha de Deposito/Transferencia
+                  .controls
                     input.input-xxsmall(type="text",id="payment-day-field",placeholder='dd',style="margin-right:10px")
                     input.input-xxsmall(type="text",id="payment-month-field",value='Junio',style="margin-right:10px", disabled='true')
                     input.input-xxsmall(type="text",id="payment-year-field",value='2012',style="margin-right:10px", disabled='true')
+                    span.help-inline
+                .control-group
+                  label.control-label(for='num-tickets-field') Numero de entradas
                   .controls
-                    label Numero de entradas
                     input.input-medium(name="user[num_tickets]",type="text",id="num-tickets-field")
+                    span.help-inline
           .modal-footer
             a.btn(data-dismiss='modal',href='#') Cerrar
             a.btn.btn-primary#sendData(href='#') Enviar
