@@ -333,7 +333,7 @@ routes.update = function(req, res) {
       mail_options = {
         from    : "CNIT.org.ve cnit.ve@gmail.com"
       , to      : ticket.email
-      , subject : "CNIT: " + ticket.name + ", tus entradas fueron aprobadas!"
+      , subject : "CNIT: " + ticket.name + ", ¡Tus entradas fueron aprobadas!"
       , html    : html
       }
 
@@ -354,7 +354,7 @@ routes.update = function(req, res) {
   }
 
   function done() {
-    return res.send({ status : 'ok' })
+    return res.send({ state : state })
   }
 
 }
