@@ -78,11 +78,11 @@ exports.register = function(req,res) {
   if (!name            ) err = 'nombre'               ; else
   if (!last_name       ) err = 'apellido'             ; else
   if (!email           ) err = 'correo'               ; else
-  if (!cedula          ) err = 'cédula de indentidad'; else
-  if (!organization    ) err = 'organización'        ; else
-  if (!city            ) err = 'city'                 ; else
+  if (!cedula          ) err = 'cédula de indentidad' ; else
+  //if (!organization    ) err = 'organización'         ; else
+  //if (!city            ) err = 'city'                 ; else
   if (!type_of_payment ) err = 'tipo de pago'         ; else
-  if (!payment_number  ) err = 'número de pago'      ; else
+  if (!payment_number  ) err = 'número de pago'       ; else
   if (!payment_date    ) err = 'fecha de pago'        ; else
   if (!payment_ammount ) err = 'monto de pago'        ; else
   if (!(tickets_stud || tickets_prof))
