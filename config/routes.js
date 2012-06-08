@@ -313,7 +313,7 @@ routes.update = function(req, res) {
     if (err) return res.send({ error : err })
     ticket = _ticket
     ticket.state = state
-    ticket.save(sendMail)
+    ticket.save(state == 'aprobado' ? sendMail : done)
   }
 
   function sendMail(err) {
@@ -333,7 +333,7 @@ routes.update = function(req, res) {
       mail_options = {
         from    : "CNIT.org.ve cnit.ve@gmail.com"
       , to      : ticket.email
-      , subject : "CNIT: " + ticket.name + ", tus entradas fueron " + ticket.state
+      , subject : "CNIT: " + ticket.name + ", tus entradas fueron aprobadas!"
       , html    : html
       }
 
@@ -350,6 +350,10 @@ routes.update = function(req, res) {
       return sendMail()
     }
 
+    done()
+  }
+
+  function done() {
     return res.send({ status : 'ok' })
   }
 
