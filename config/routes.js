@@ -64,8 +64,10 @@ routes.register = function(req,res) {
     , payment_ammount = +req.body.payment_ammount
     , tickets_stud    = +req.body.tickets_stud
     , tickets_else    = +req.body.tickets_else
+    , total_tickets   = tickets_stud + tickets_else
     , email_times     = 0
-    , special_code
+    , special_codes   = []
+    , last_code
     , mail_options
     , err
     , ticket
@@ -129,17 +131,21 @@ routes.register = function(req,res) {
 
   function gotRandomBytes(err, buf) {
     if (err) return res.send({ error : "Error generating code" })
-    special_code = buf.toString('hex')
+    last_code = buf.toString('hex')
     checkCodeInDB()
   }
 
-  function checkCodeInDB() {
-    db.tickets.count({special_code : special_code}, checkedCodeInDB)
+  function checkCodeInDB(code) {
+    db.tickets.count({special_codes : last_code}, checkedCodeInDB)
   }
 
   function checkedCodeInDB(err, count) {
     if (err) return res.send({ error : 'DB error' })
     if (count) return getRandomBytes()
+    special_codes.push(last_code)
+    if (special_codes.length < total_tickets) {
+      return getRandomBytes()
+    }
     sendToDB()
   }
 
@@ -158,7 +164,7 @@ routes.register = function(req,res) {
     , payment_ammount : +payment_ammount
     , tickets_stud    : +tickets_stud
     , tickets_else    : +tickets_else
-    , special_code    : special_code
+    , special_codes   : special_codes
     , state           : 'espera'
     }
 
