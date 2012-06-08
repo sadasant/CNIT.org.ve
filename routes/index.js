@@ -16,7 +16,7 @@ var email_times = 0
   , CODE_SIZE_BYTES = 4
 
 // Db model
-var UserModel = new mongoose.Schema({ 
+var UserModel = new mongoose.Schema({
     "_id"           : mongoose.Schema.ObjectId
   , name            : String
   , last_name       : String
@@ -33,6 +33,7 @@ var UserModel = new mongoose.Schema({
   , special_code    : String
   , state           : String
  })
+
 // db model
 var User = mongoose.model('users', UserModel)
 

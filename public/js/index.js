@@ -7,7 +7,7 @@ $(document).ready(function(){
     , isFixed = 0
 
   processScroll()
-  
+
   nav.on('click', function () {
     if (!isFixed) setTimeout(function () {  win.scrollTop(win.scrollTop() - 200) }, 10)
   })
@@ -25,6 +25,20 @@ $(document).ready(function(){
     }
   }
 
-// Form modal
+  var day   =  $('#payment-day-field')
 
-});
+  $('#sendData').click(function(e){
+    e.preventDefault()
+
+    var form_data = $('#registryForm').serialize()
+      , date = new Date(2012,5,day.val())
+
+    form_data += '&payment_date='+date
+    console.log(date)
+
+    $.post('/register', form_data, function(data){
+      console.log(data)
+    })
+  })
+
+})

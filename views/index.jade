@@ -78,7 +78,7 @@
               img(src='/img/social.png')
             .span9
               h3 Social Media Empresarial
-              h4 Daniel Rodriguez, 
+              h4 Daniel Rodriguez,
                 a(href='http://twitter.com/tecnodaniel') @tecnodaniel
               p Más de 25 años de experiencia profesional en el desarrollo de tecnologías industriales y para empresas, a nivel internacional, además de más de 10 años como emprendedor, Daniel Rodríguez llega con un tema sumamente actualizado, nada más y nada menos que las redes sociales y cómo aprovecharlas al máximo para dar a conocer a tu empresa y para captar a los más fieles clientes.
         .span6
@@ -96,7 +96,7 @@
               img(src='/img/zip.png')
             .span9
               h3 El Cierre
-              h4 Emerson Ramírez, 
+              h4 Emerson Ramírez,
                 a(href='http://twitter.com/emersonramirezs') @emersonramirezs
               p E. Ramírez, experto conferencista en materia de ventas, hará uso de su expereincia para resumir las herramientas aprendidas en el día, además de exponer un análisis de cómo podemos entrar a la acción, dando un paso adelante en el mercado Venezolano a través de la innovación tecnológica.
         .span4
@@ -114,16 +114,16 @@
             img(src='/img/club1.jpg')
           small Entrada de la Casa Italia de Maracay
         .span4.description
-          p.place-intro El primer CNIT se llevará a cabo el día 
-            strong 30 de Junio 
-            | del 2012, a partir de las 
-            strong 8:00am 
-            | hasta las 
+          p.place-intro El primer CNIT se llevará a cabo el día
+            strong 30 de Junio
+            | del 2012, a partir de las
+            strong 8:00am
+            | hasta las
             strong 5:00pm
-            |, en las instalaciones del teatro de la 
-            strong Casa Italia Maracay 
-            | con capacidad para 
-            strong 400 
+            |, en las instalaciones del teatro de la
+            strong Casa Italia Maracay
+            | con capacidad para
+            strong 400
             | personas
           address.place-block
             strong Dirección
@@ -146,16 +146,16 @@
             .span3
               span 1
             .span9
-              p Verifica el monto que debes cancelar para tu inscripción en la tabla de 
-                a(href='#tarifas') tarifas 
+              p Verifica el monto que debes cancelar para tu inscripción en la tabla de
+                a(href='#tarifas') tarifas
                 |  que disponemos más abajo.
         .span4
           .row-fluid
             .span3
               span 2
             .span9
-              p Deposita el monto correspondiente en la cuenta corriente del 
-                strong Banco del Sur 
+              p Deposita el monto correspondiente en la cuenta corriente del
+                strong Banco del Sur
                 |  número:
                 br
                 code 0157-0061-11-376120-1080
@@ -164,9 +164,10 @@
             .span3
               span 3
             .span9
-              p Solicita tu número de inscripción llamando a cualquiera de los 
-                a(href='#numeros') números de contacto 
-                | ubicados abajo.
+              p Obten tu número de inscripción llenando la planilla que se encuentra disponible 
+                a(href='#myModal',data-toggle='modal').btn.btn-primary aquí
+                |	
+  
       .row-fluid.steps
         .span4
           .row-fluid
@@ -344,7 +345,7 @@
         .span12
           hr
           h3 ¿Deseas apoyarnos y colocar tu logo aquí?
-          p Visita nuestros 
+          p Visita nuestros
             a(href='http://sadasant.com/Carta-de-Patrocinio.pdf') Planes de Patrocinio
   section#cdstic.row
     .span12
@@ -352,6 +353,64 @@
       p Este evento es posible gracias al esfuerzo del equipo de proyectos Centro de Desarrollo de Software y Tecnologías de Comunicación y Telecomunicaciones (CDSTIC) de la Universidad Tecnológica del Centro (UNITEC), un grupo de estudiantes comprometidos a la investigación del desarrollo y comerciabilidad de tecnologías modernas.
       br
 
+  section#modal.row
+    .span12
+      .row
+        #myModal.modal.hide.fade
+          .modal-header
+            button(data-dismiss='modal',type='button').close ×
+            h3 Registro de participante
+          .modal-body
+            form#registryForm
+                .control-group
+                  .controls
+                    .input-prepend
+                      span.add-on Nombre
+                      input.string.field.required.input-medium(,name="user[name]",type="text",id="name-field",placeholder="Nombre")
+                      span.add-on Apellido
+                      input.string.field.required.input-medium(name="user[lastname]",type="text",id="last-name-field",placeholder="Apellido")                        
+                .control-group
+                  .controls
+                    .input-prepend
+                      span.add-on @
+                      input.string.field.required.input-medium(name="user[email]",type="text",id="email-field",placeholder="Correo")
+                      span.add-on Cedula
+                      input.string.field.required.input-medium(name="identityCard",type="text",id="id-field",placeholder="Cedula")
+                .control-group
+                  .controls
+                    .input-prepend
+                      span.add-on Organización
+                      input.string.field.required.input-medium(name="user[organization]",type="text",id="org-field",placeholder="Organización")
+                      span.add-on Ciudad
+                      input.string.field.required.input-medium(name="user[city]",type="text",id="city-field",placeholder="Ciudad")
+                .control-group
+                  .controls
+                    select.select(name="user[ocupation]",id="ocupation")
+                      option Seleccionar Ocupacion
+                      option Estudiante
+                      option Profesional (Publico General)
+                    select.select(name='user[payment_type]',id='payment_type')
+                      option Seleccionar Tipo de Pago
+                      option Deposito
+                      option Transferencia
+                .control-group
+                  .controls
+                    input.field-large(name='user[payment_number]',type="text",id="payment-number-field",placeholder='Numero de Deposito/Transferencia')
+                    input.field-large(name='user[payment_ammount]',type="text",id="payment-ammount-field",placeholder='Monto de Deposito/Transferencia')
+                .control-group
+                  .controls
+                    label Fecha de Deposito/Transferencia
+                    input.input-xxsmall(type="text",id="payment-day-field",placeholder='dd',style="margin-right:10px")
+                    input.input-xxsmall(type="text",id="payment-month-field",value='Junio',style="margin-right:10px", disabled='true')
+                    input.input-xxsmall(type="text",id="payment-year-field",value='2012',style="margin-right:10px", disabled='true')
+                  .controls
+                    label Numero de entradas
+                    input.input-medium(name="user[num_tickets]",type="text",id="num-tickets-field")
+          .modal-footer
+            a.btn(data-dismiss='modal',href='#') Cerrar
+            a.btn.btn-primary#sendData(href='#') Enviar
+
   footer
     hr
-    p Copyright 2012 cnit.org.ve
+                
+  script(src="/public/js/index.js")
