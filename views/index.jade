@@ -176,80 +176,6 @@
             .span9
               p Deberás presentar tu número de inscripción y documento de identidad en las puertas del evento.
               p En caso de ser estudiante, debes presentar carnet o constancia que te acredite como tal.
-            .span3
-              span 5
-            .span8
-              p LLene 
-               a( data-toggle="modal",href="#myModal") este formulario
-        div(class="modal hide",id="myModal")
-          .modal-header
-            Button(type="button", class="close", data-dismiss="modal") x
-            h3 Formulario
-          .modal-body
-            form(class="form-horizontal",method="post",action="/register")
-              fieldset
-                .control-group
-                  Legend Formulario 
-                    table
-                      tr
-                        td
-                          Label(class="form-labels",for="name-field") Name
-                        td
-                          input(name="user[name]",type="text",id="name-field",placeholder="Name")
-                      tr
-                        td
-                          Label(class="form-labels",for="last-name-field") Last Name
-                        td  
-                          input(name="user[lastname]",type="text",id="last-name-field",placeholder="Last Name")
-                      tr
-                        td
-                          Label(class="form-labels",for="email-field") Email
-                        td
-                          input(name="user[email]",type="text",id="email-field",placeholder="Example@gmail.com")
-                      tr
-                        td
-                          Label(class="form-labels",for="id-field") Identity Card
-                        td
-                          input(name="user[id]",type="text",id="id-field",placeholder="V-5421354")
-                      tr
-                        td
-                          Label(class="form-labels",for="org-field") Organization
-                        td
-                          input(name="user[organization]",type="text",id="org-field",placeholder="Monsters Inc.")
-                      
-                      tr
-                        td
-                          Label(class="form-labels",for="city-field") City
-                        td
-                          input(name="user[city]",type="text",id="city-field",placeholder="Valencia")
-                      tr
-                        td
-                          Label(class="form-labels",for="deposit-number-field") Deposit or Transfer number
-                        td
-                          input(name="user[deposit-number]",type="text",id="deposit-number-field",placeholder="0000-0000-0000-0000")
-                      tr
-                        td
-                          Label(class="form-labels",for="deposit-ammount-field") Deposit or Transer ammount
-                        td
-                          input(name="user[deposit-ammount]",type="text",id="deposit-ammount-field",placeholder="800Bs.F")
-                      tr
-                        td
-                          Label(class="form-labels",for="deposit-date-field") Deposit or Transer date
-                        td
-                          input(name="user[deposit-date]",type="text",id="deposit-date-field",placeholder="1/1/2012")
-                      tr
-                        td
-                          Label(class="form-labels",for="number-tickets-field") Number of tickets
-                        td
-                          input(name="user[number-tickets]",type="text",id="number-tickets-field",placeholder="2")
-                      tr
-                        td
-                        td  
-                          input(type="submit",value="Submit") 
-
-          .modal-footer
-            a(href="#", class="btn",data-dismiss="modal") close
-            a(href="#", class="btn btn-primary")x
 
         .span8
           .row-fluid
@@ -364,79 +290,82 @@
             form.form-horizontal#registryForm
               .fielset
                 .control-group
-                  label.control-label(for='name') Nombre
+                  label.control-label Nombre
                   .controls
-                    input.input-large(,name="user[name]",type="text",id="name",placeholder="Nombre")
-                    span.help-inline.hidden Debe introducir su Nombre
+                    input.input-large#registry-name(name="name",type="text",placeholder="Nombre")
+                    span.help.hidden Debe introducir su nombre
                 .control-group
-                  label.control-label(for='last-name') Apellido
+                  label.control-label Apellido
                   .controls
-                    input.input-large(name="user[lastname]",type="text",id="last-name",placeholder="Apellido")
-                    span.help-inline.hidden Debe Introduccir su Apellido                      
+                    input.input-large#registry-last_name(name="last_name",type="text",placeholder="Apellido")
+                    span.help.hidden Debe introduccir su apellido
                 .control-group
-                  label.control-label(for='email') Correo
+                  label.control-label Correo
                   .controls
-                    input.input-large(name="user[email]",type="text",id="email",placeholder="Correo")
-                    span.help-inline.hidden Debe introducir un Correo valido
+                    input.input-large#registry-email(name="email",type="text",placeholder="Correo")
+                    span.help.hidden Debe introducir un correo válido
                 .control-group
-                  label.control-label(for='cedula') Cedula de Identidad
+                  label.control-label Cedula de Identidad
                   .controls
-                    input.input-large(name="identityCard",type="text",id="cedula",placeholder="Cedula")
-                    span.help-inline.hidden Debe introducir su Cedula de Identidad
+                    input.input-large#registry-cedula(name="cedula",type="text",placeholder="Cedula")
+                    span.help.hidden Debe introducir su Cedula de Identidad
                 .control-group
-                  label.control-label(for='organization') Organización
+                  label.control-label Organización
                   .controls
-                    input.input-large(name="user[organization]",type="text",id="organization",placeholder="Organización")
+                    input.input-large(name="organization",type="text",placeholder="Organización")
                 .control-group
-                  label.control-label(for='city') Ciudad
+                  label.control-label Ciudad
                   .controls
-                    input.input-large(name="user[city]",type="text",id="city",placeholder="Ciudad")
+                    input.input-large(name="city",type="text",placeholder="Ciudad")
                 .control-group
-                  label.control-label(for='type_of_payment') Metodo de Pago
+                  label.control-label Entradas estudiantes
                   .controls
-                    select.select(name='user[type_of_payment]',id='type_of_payment')
+                    .input-prepend.input-append(data-type="stud")
+                      input.input-xsmall(name="tickets_stud", type="text", id="tickets_stud ", placeholder="Estudiantes", disabled="disabled", autocomplete="off", value="0 x 200")
+                      button.btn(type="button") +
+                      button.btn(type="button") -
+                .control-group
+                  label.control-label Entradas general
+                  .controls
+                    .input-prepend.input-append(data-type="prof")
+                      input.input-xsmall(name="tickets_prof", type="text", id="tickets_prof", placeholder="General", disabled="disabled", autocomplete="off", value="0 x 400")
+                      button.btn(type="button") +
+                      button.btn(type="button") -
+                .control-group
+                  label.control-label Monto de total
+                  .controls
+                    #total-ammount 0 Bs
+                .control-group
+                  label.control-label Metodo de Pago
+                  .controls
+                    select.select#registry-type_of_payment(name='type_of_payment')
                       option Seleccionar Tipo de Pago
                       option Deposito
                       option Transferencia
-                    span.help-inline.hidden Debe seleccionar un metodo de pago
+                    span.help.hidden Debe seleccionar un método de pago
                 .control-group
-                  label.control-label(for='payment-number') Numero de Deposito/Transferencia
+                  label.control-label Numero de Transacción
                   .controls
-                    input.field-large(name='user[payment_number]',type="text",id="payment-number",placeholder='Numero de Deposito/Transferencia')
-                    span.help-inline.hidden
+                    input.field-large#registry-payment_number(name='payment_number',type="text",placeholder='Numero de Deposito/Transferencia', autocomplete="off")
+                    span.help.hidden Debe colocar un número de depósito o transferencia
                 .control-group
-                  label.control-label(for='payment-ammount') Monto de Deposito/Transferencia
+                  label.control-label Fecha de Transacción
                   .controls
-                    input.field-large(name='user[payment_ammount]',type="text",id="payment-ammount",placeholder='Monto de Deposito/Transferencia')
-                    span.help-inline.hidden
-                .control-group.form-inline
-                  label.control-label Entradas
-                  .controls
-                    .input-prepend.input-append
-                      button.btn(type="button) +
-                      input.input-xsmall(name="tickets_stud",type="text",id="tickets_stud ",placeholder="Estudiantes")
-                      button.btn(type="button) -
-                    .input-prepend.input-append
-                      button.btn(type="button) +
-                      input.input-xsmall(name="tickets_prof",type="text",id="tickets_prof",placeholder="General")
-                      button.btn(type="button) -
-                .control-group
-                  label.control-label(for='payment-day-field') Fecha de Deposito/Transferencia
-                  .controls
-                    input.input-xxsmall(type="text",id="payment-day-field",placeholder='dd',style="margin-right:10px")
-                    input.input-xxsmall(type="text",id="payment-month-field",value='Junio',style="margin-right:10px", disabled='true')
-                    input.input-xxsmall(type="text",id="payment-year-field",value='2012',style="margin-right:10px", disabled='true')
-                    span.help-inline.hidden
-                .control-group
-                  label.control-label(for='num-tickets-field') Numero de entradas
-                  .controls
-                    input.input-medium(name="user[num_tickets]",type="text",id="num-tickets-field")
-                    span.help-inline.hidden
+                    input.input-xxsmall(type="text",id="payment-day-field"  , placeholder='día', value=''     , style="margin-right:10px", autocomplete="off")
+                    input.input-xxsmall(type="text",id="payment-month-field", placeholder='mes', value='6'    , style="margin-right:10px", disabled='true', autocomplete="off")
+                    input.input-xxsmall(type="text",id="payment-year-field" , placeholder='año', value='2012' , style="margin-right:10px", disabled='true', autocomplete="off")
+                    span.help.hidden Debe colocar un día válido
+                .info
+                  | Al enviar este formulario le haremos llegar la verificación de sus datos en menos de <b>24 horas</b>
+                  |  al correo que nos indique.
+                  br
+                  br
+                  | Si tiene algún problema, contáctenos a los <b><a href="#contacto">números de contacto</a></b> ubicados al final de esta página.
           .modal-footer
+            .error
             a.btn(data-dismiss='modal',href='#') Cerrar
-            a.btn.btn-primary#sendData(href='#') Enviar
+            a.btn.btn-primary#sendData(href='#contacto') Enviar
 
   footer
     hr
-                
-  script(src="/public/js/index.js")
+  script(src="/js/index.js")

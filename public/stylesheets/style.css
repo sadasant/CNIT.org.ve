@@ -456,3 +456,45 @@ footer p {
     line-height: 18px;
   }
 }
+#registryForm .control-group .control-label {
+  width: 200px;
+}
+#registryForm .control-group .controls {
+  margin-left: 220px;
+}
+#registryForm .control-group .controls .input-xsmall {
+  text-align: right;
+  width: 156px;
+}
+#registryForm .control-group .controls #total-ammount {
+  background: #fefad5;
+  background: #fefad5;
+  -webkit-box-shadow: inset -1px 1px 8px rgba(0,0,0,0.1);
+  box-shadow: inset -1px 1px 8px rgba(0,0,0,0.1);
+  border: 1px solid rgba(0,0,0,0.1);
+  color: #f00;
+  padding: 5px 6px;
+  text-align: right;
+  text-shadow: 1px 1px 0 #fff;
+  width: 205px;
+}
+#registryForm .control-group .controls .help-inline {
+  color: #f00;
+  font-size: 12px;
+  margin-top: 10px;
+  width: 210px;
+}
+#registryForm .info {
+  margin: 0 auto 0;
+  text-align: center;
+  width: 400px;
+}
+.modal-footer .error {
+  color: #f00;
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 5px;
+  position: absolute;
+  text-align: right;
+  width: 70%;
+}

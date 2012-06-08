@@ -7,13 +7,16 @@ var mailer   = require('nodemailer')
 var validate = {
       email          : /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+(?:[A-Z]{2}|com|org|net|edu|gov|mil|biz|info|mobi|name|aero|asia|jobs|museum)\b/
     , cedula         : /^[0-9]{6,8}$/
+    , payment_number : /^[0-9]{12,20}$/
     , just_numbers   : /^[0-9]*$/
     }
 
-// some stuff
+// Default global values
 var email_times = 0
   , max_email_times = 4
   , CODE_SIZE_BYTES = 4
+  , ticket_stud_val = 200
+  , ticket_else_val = 400
 
 // Db model
 var UserModel = new mongoose.Schema({
@@ -29,7 +32,7 @@ var UserModel = new mongoose.Schema({
   , payment_date    : String
   , payment_ammount : Number
   , tickets_stud    : Number
-  , tickets_prof    : Number
+  , tickets_else    : Number
   , special_code    : String
   , state           : String
  })
@@ -56,20 +59,18 @@ exports.us = function(req, res) {
 // Route: /register
 exports.register = function(req,res) {
 
-  var name            = req.body.user.name
-    , last_name       = req.body.user.last_name
-    , email           = req.body.user.email
-    , cedula          = req.body.user.cedula
-    , organization    = req.body.user.organization
-    , city            = req.body.user.city
-    , type_of_payment = req.body.user.type_of_payment
-    , payment_number  = req.body.user.payment_number
-    , payment_date    = req.body.user.payment_date
-    , payment_ammount = req.body.user.payment_ammount
-    , tickets_stud    = req.body.user.tickets_stud
-    , tickets_prof    = req.body.user.tickets_prof
-    , ticket_stud_val = 200
-    , ticket_prof_val = 400
+  var name            = req.body.name
+    , last_name       = req.body.last_name
+    , email           = req.body.email
+    , cedula          = req.body.cedula
+    , organization    = req.body.organization
+    , city            = req.body.city
+    , type_of_payment = req.body.type_of_payment
+    , payment_number  = req.body.payment_number
+    , payment_date    = req.body.payment_date
+    , payment_ammount = req.body.payment_ammount
+    , tickets_stud    = req.body.tickets_stud
+    , tickets_else    = req.body.tickets_else
     , special_code
     , mail_options
     , err
@@ -86,13 +87,13 @@ exports.register = function(req,res) {
   if (!payment_number  ) err = 'número de pago'       ; else
   if (!payment_date    ) err = 'fecha de pago'        ; else
   if (!payment_ammount ) err = 'monto de pago'        ; else
-  if (!(tickets_stud || tickets_prof))
+  if (!(tickets_stud || tickets_else))
                          err = 'número de tickets'
 
   // Validating fields
 
   if (err) {
-    return res.json({ "error" : 'Faltó el campo '+err })
+    return res.json({ "error" : 'Faltó el campo: '+err })
   }
 
   if (!validate.email.test(email)) {
@@ -104,20 +105,20 @@ exports.register = function(req,res) {
   if (!(type_of_payment == 'transferencia' || 'deposito')) {
     err = 'Tipo de pago inválido'
   } else
-  if (!validate.just_numbers.test(payment_number)) {
+  if (!validate.payment_number.test(payment_number)) {
     err = 'Número de pago inválido'
   } else
   if (!validate.just_numbers.test(tickets_stud)) {
     err = 'Número de entradas de estudiantes inválido'
   } else
-  if (!validate.just_numbers.test(tickets_prof)) {
+  if (!validate.just_numbers.test(tickets_else)) {
     err = 'Número de entradas de profesionales inválido'
   } else
   if (!validate.just_numbers.test(payment_ammount)) {
     err = 'Monto de pago inválido'
   }
 
-  total = (+tickets_stud * ticket_stud_val) + (+tickets_prof * ticket_prof_val)
+  total = (+tickets_stud * ticket_stud_val) + (+tickets_else * ticket_else_val)
   if ((+payment_ammount < total) || (+payment_ammount > total)) {
     err = 'El pago introducido no coincide con el monto total de entradas'
   }
@@ -164,7 +165,7 @@ exports.register = function(req,res) {
     user.payment_date    = payment_date
     user.payment_ammount = +payment_ammount
     user.tickets_stud    = +tickets_stud
-    user.tickets_prof    = +tickets_prof
+    user.tickets_else    = +tickets_else
     user.special_code    = special_code
     user.state           = 'espera'
 
