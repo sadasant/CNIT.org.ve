@@ -27,7 +27,8 @@ if(!process.env.NODE_ENV) {
 }
 
 var app  = require('./config/app')()
+  , port = process.env['app_port'] || 3000
 
-app.listen(17955, function() {
+app.listen(port, function() {
   console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env)
 })
