@@ -261,11 +261,12 @@ routes.find = function(req, res) {
 
   // Looking for a similar ticket
   for (k in query) {
-    if (!query[k] || isNaN(query[k])) {
+    if (!query[k] || (typeof query[k] !== 'string' && isNaN(query[k]))) {
       delete query[k]
     }
   }
 
+  console.log(query)
   db.tickets.find(query, foundTicket)
 
   function foundTicket(err, tickets) {
@@ -293,6 +294,7 @@ routes.find = function(req, res) {
     })
   }
 }
+
 
 // Route: /update
 routes.update = function(req, res) {
