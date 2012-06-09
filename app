@@ -1,36 +1,20 @@
+// CNIT.org.ve
+// -----------
+//
+// Authored by:
+// - Daniel Rodríguez  @sadasant
+// - Stefan Maric      @alexstefan92
+// - Sergio Bruni      @sergebruni
+// - Adrian Obelmejías https://www.facebook.com/adrian.obelmejias
+// - Daniel Aubourg    https://www.facebook.com/daniel.aubourg
+//
 
-// MVC Sugar
-var express = require('express')
+if(!process.env.NODE_ENV) {
+  process.env.NODE_ENV = "development"
+}
 
-// Routes
-var routes = require('./routes');
+var app  = require('./config/app')()
 
-// The express server
-var app = module.exports = express.createServer();
-
-// Configuration
-app.configure(function(){
-  app.set('views', __dirname + '/views')
-  app.set('view engine', 'jade')
-  app.use(express.bodyParser())
-  app.use(express.methodOverride())
-  app.use(require('stylus').middleware({ src: __dirname + '/public' }))
-  app.use(app.router)
-  app.use(express.static(__dirname + '/public'))
-})
-
-app.configure('development', function(){
-  app.use(express.errorHandler({ dumpExceptions: true, showStack: true }))
-})
-
-app.configure('production', function(){
-  app.use(express.errorHandler())
-})
-
-// Routes
-
-app.get('/', routes.index)
-
-app.listen(17955, function(){
+app.listen(17955, function() {
   console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env)
 })
