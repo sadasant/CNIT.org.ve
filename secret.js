@@ -7,3 +7,10 @@ exports.transportObject = {
   , pass : "password"
   }
 }
+
+exports.auth = {
+  user : 'adminuser'
+, pass : 'adminpass'
+}
+
+exports.session = 'session'
