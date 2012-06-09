@@ -1,4 +1,16 @@
 h1 ENTRADAS APROBADAS
+p Por favor, tome nota de
+- if (ticket.special_codes.length > 1)
+  |  los siguientes códigos:
+- else
+  | l siguiente código:
+p(style="margin-left: 20px; font-weight:bold; color: #3D1C20")= ticket.special_codes.join(', ')
+p
+  | Se le entregó un código por cada entrada solicitada,
+  |  deberá presentar estos códigos el día del evento para poder entrar a las instalaciones,
+  |  si se le presenta algún problema, no dude en comunicarse con nosotros respondiendo a este correo.
+br
+h2 Solicitud:
 p
   | El día
   - var date = new Date(ticket.payment_date)
