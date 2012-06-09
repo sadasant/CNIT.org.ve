@@ -1,0 +1,33 @@
+h1 NUEVO TICKET
+p
+  | El día
+  - var date = new Date(ticket.payment_date)
+  = ' ' + date.getDate() + '/' + (date.getMonth()+1) + '/2012,'
+  = ' ' + ticket.name + ' ' + ticket.last_name + ','
+  |  cédula de identidad
+  |  #{ticket.cedula},
+  |  correo electrónico
+  |  #{ticket.email},
+  - if (ticket.organization)
+    |  de la organización
+    |  #{ticket.organization},
+  - if (ticket.city)
+    |  de la ciudad
+    |  #{ticket.city}
+  |  ha realizado un
+  if (ticket.type_of_payment == 'transferencia')
+    = 'a'
+  |  #{ticket.type_of_payment}
+  |  con un monto total de
+  |  #{ticket.payment_ammount} Bs
+  |  por la solicitud de:
+  ul
+    li
+      = ticket.tickets_stud
+      |  entradas para estudiantes.
+    li
+      = ticket.tickets_else
+      |  entradas para público en general.
+  | Por favor, confirmar la solicitud y luego validar su compra en&nbsp;
+  a(href='http://cnit.org.ve/admin') este enlace
+  | .
