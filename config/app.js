@@ -1,7 +1,7 @@
 
 // Configurations
-const models  = require('./models')
-    , config  = require('./config')
+const config  = require('./config')
+    , models  = require('./models')
     , routes  = require('./routes')
 
     // Modules

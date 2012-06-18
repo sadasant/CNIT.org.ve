@@ -17,7 +17,9 @@ p
   |  ha realizado un
   if (ticket.type_of_payment == 'transferencia')
     = 'a'
-  |  #{ticket.type_of_payment}
+  |  #{ticket.type_of_payment},
+  |  número
+  |  #{ticket.payment_number},
   |  con un monto total de
   |  #{ticket.payment_ammount} Bs
   |  por la solicitud de:

@@ -11,7 +11,7 @@ var db
 var validate = {
       email          : /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+(?:[A-Z]{2}|com|org|net|edu|gov|mil|biz|info|mobi|name|aero|asia|jobs|museum)\b/
     , cedula         : /^[0-9]{6,8}$/
-    , payment_number : /^[0-9]{12,20}$/
+    , payment_number : /^\S{8,30}$/
     , just_numbers   : /^[0-9]*$/
     }
 
@@ -58,6 +58,10 @@ routes.register = function(req,res) {
     , cedula          = req.body.cedula.trim()
     , organization    = req.body.organization
     , city            = req.body.city
+    , reference       = req.body.reference
+    , unitec          = req.body.unitec
+    , fapi            = req.body.fapi
+    , uba             = req.body.uba
     , type_of_payment = req.body.type_of_payment
     , payment_number  = req.body.payment_number.replace(/[^0-9]+/g,'')
     , payment_date    = req.body.payment_date
@@ -158,6 +162,10 @@ routes.register = function(req,res) {
     , cedula          : cedula
     , organization    : organization
     , city            : city
+    , reference       : reference
+    , unitec          : unitec
+    , fapi            : fapi
+    , uba             : uba
     , type_of_payment : type_of_payment
     , payment_number  : payment_number
     , payment_date    : payment_date
@@ -249,6 +257,10 @@ routes.find = function(req, res) {
   , cedula          : req.body.cedula
   , organization    : req.body.organization
   , city            : req.body.city
+  , reference       : req.body.reference
+  , unitec          : req.body.unitec
+  , fapi            : req.body.fapi
+  , uba             : req.body.uba
   , type_of_payment : req.body.type_of_payment
   , payment_number  : req.body.payment_number
   , payment_date    : req.body.payment_date
@@ -279,6 +291,10 @@ routes.find = function(req, res) {
       , cedula          : e.cedula
       , organization    : e.organization
       , city            : e.city
+      , reference       : e.reference
+      , unitec          : e.unitec
+      , fapi            : e.fapi
+      , uba             : e.uba
       , type_of_payment : e.type_of_payment
       , payment_number  : e.payment_number
       , payment_date    : e.payment_date

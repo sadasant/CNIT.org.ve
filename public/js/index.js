@@ -9,6 +9,8 @@ $(document).ready(function(){
     , $day    = $('#payment-day-field')
     , $month  = $('#payment-month-field')
     , $year   = $('#payment-year-field')
+    , $unitec = $('input[name=unitec]')
+    , $fapi   = $('.fapi')
     , date    = new Date()
   // Default variables
     , isFixed         = 0
@@ -20,7 +22,7 @@ $(document).ready(function(){
     , validate = {
         email          : /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+(?:[A-Z]{2}|com|org|net|edu|gov|mil|biz|info|mobi|name|aero|asia|jobs|museum)\b/
       , cedula         : /^[0-9]{6,8}$/
-      , payment_number : /^[0-9]{12,20}$/
+      , payment_number : /^\S{8,30}$/
       , just_numbers   : /^[0-9]*$/
       }
 
@@ -144,5 +146,12 @@ $(document).ready(function(){
       $error.html('')
     }
   }
+
+  // If estudiante unitec, show fapi
+  $unitec.on('click', function() {
+    $fapi.toggle()
+  })
+
+
 
 })

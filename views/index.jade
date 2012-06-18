@@ -11,7 +11,7 @@
               h1 INNOVACIÓN TECNOLÓGICA
             li
               h3 AUDITORIO CASA DE ITALIA DE MARACAY
-              h3 30 DE JULIO
+              h3 30 DE JUNIO
       #navigation
         ul.nav.nav-pills.pull-left
           li
@@ -155,11 +155,15 @@
             .span3
               span 2
             .span9
-              p Deposita el monto correspondiente en la cuenta corriente del
+              p Deposita el monto correspondiente en la cuenta corriente del 
                 strong Banco del Sur
-                |  número:
-                br
+                | , número: 
                 code 0157-0061-11-376120-1080
+                br
+                | a nombre de la 
+                strong Universidad Tecnológica del Centro
+                |  RIF: 
+                code J-07546986-0
         .span4
           .row-fluid
             .span3
@@ -317,6 +321,22 @@
                   label.control-label Ciudad
                   .controls
                     input.input-large(name="city",type="text",placeholder="Ciudad")
+                .control-group
+                  label.control-label ¿Qué te animó a participar?
+                  .controls
+                    input.input-large(name="reference",type="text",placeholder="Nombre o referencia")
+                .control-group
+                  label.control-label ¿Estudiante UNITEC?
+                  .controls
+                    input(type="checkbox", name="unitec") Sí
+                .control-group.fapi.hide
+                  label.control-label ¿Harás entrega de un ensayo para obtener los puntos de FAPI del trimestre Septiembre-Diciembre?
+                  .controls
+                    input(type="checkbox", name="fapi") Sí
+                .control-group
+                  label.control-label ¿Estudiante UBA?
+                  .controls
+                    input(type="checkbox", name="uba") Sí
                 .control-group
                   label.control-label Entradas estudiantes
                   .controls

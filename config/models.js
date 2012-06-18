@@ -23,6 +23,10 @@ models.Ticket = new Schema({
   , cedula          : String
   , organization    : String
   , city            : String
+  , reference       : String
+  , unitec          : String
+  , fapi            : String
+  , uba             : String
   , type_of_payment : String
   , payment_number  : String
   , payment_date    : String
