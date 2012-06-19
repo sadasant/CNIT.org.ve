@@ -287,14 +287,15 @@ ul.beneficios li {
 .presentation .row-fluid p {
   padding-top: 16px;
 }
-#patrocinadores .row-fluid .span12 {
+#patrocinadores .row-fluid {
   text-align: center;
-  padding-top: 10px;
+  padding: 20px 0;
 }
-#patrocinadores .row-fluid .span12 a {
+#patrocinadores .row-fluid a {
   text-align: center;
+  margin: 0 20px;
 }
-#patrocinadores .row-fluid .span12 img {
+#patrocinadores .row-fluid img {
   max-height: 150px;
   max-width: 250px;
 }

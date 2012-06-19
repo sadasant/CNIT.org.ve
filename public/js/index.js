@@ -17,8 +17,8 @@ $(document).ready(function(){
     , tickets_stud    = 0
     , tickets_else    = 0
     , total           = 0
-    , ticket_stud_val = 200
-    , ticket_else_val = 400
+    , ticket_stud_val = 250
+    , ticket_else_val = 450
     , validate = {
         email          : /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+(?:[A-Z]{2}|com|org|net|edu|gov|mil|biz|info|mobi|name|aero|asia|jobs|museum)\b/
       , cedula         : /^[0-9]{6,8}$/

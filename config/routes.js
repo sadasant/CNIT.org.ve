@@ -18,8 +18,8 @@ var validate = {
 // Default global values
 var max_email_times = 4
   , CODE_SIZE_BYTES = 4
-  , ticket_stud_val = 200
-  , ticket_else_val = 400
+  , ticket_stud_val = 250
+  , ticket_else_val = 450
 
 
 // Exporting...
